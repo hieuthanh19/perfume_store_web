@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>@ViewBag.Title | ATM Admin Page</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Areas/Admin/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/file-uploaders/dropzone.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/plugins/file-uploaders/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/pages/data-list-view.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/assets/css/style.css">
+    <!-- END: Custom CSS-->
+    <style>
+        .table .active {
+            color: green;
+        }
+
+        .table .locked {
+            color: red;
+        }
+    </style>
+
+</head>
+<body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+    <!-- BEGIN: Header-->
+    @RenderPage("_NavBar.cshtml")
+    <!-- END: Header-->
+
+    <!-- BEGIN: Main Menu-->
+    @RenderPage("_MainMenu.cshtml")
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    @RenderPage("_Footer.cshtml")
+    <!-- END: Footer-->
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Areas/Admin/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Areas/Admin/app-assets/vendors/js/extensions/dropzone.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Areas/Admin/app-assets/js/core/app-menu.js"></script>
+    <script src="~/Areas/Admin/app-assets/js/core/app.js"></script>
+    <script src="~/Areas/Admin/app-assets/js/scripts/components.js"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+    <script src="~/Areas/Admin/app-assets/js/scripts/ui/data-list-view.js"></script>
+    <!-- END: Page JS-->
+
+    <script>
+        $(document).ready(function () {
+            var currentURL = window.location.href.toLowerCase();
+            var listHref = $('li a');
+            var finalIndex = -1
+            for (var i = 0; i < listHref.length; i++) {
+                var href = listHref[i].href.toLowerCase();
+                if (currentURL.startsWith(href)) {                  
+                    //parent.className = "active";
+                    finalIndex = i;
+                }
+            }
+          listHref[finalIndex].parentElement.className = "active";
+        });
+    </script>
+
+</body>
+</html>
