@@ -1,0 +1,43 @@
+﻿@model Model.EF.deliveryMethod
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>deliveryMethod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.delivery_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -26,6 +26,7 @@ namespace Model.EF
         [Column(TypeName = "datetime2"), Display(Name = "Created At")]
         public DateTime? country_createdAt { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<brand> brands { get; set; }
     }

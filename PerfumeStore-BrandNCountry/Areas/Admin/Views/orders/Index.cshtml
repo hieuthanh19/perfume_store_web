@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Model.EF.order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryMethod.delivery_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentMethod.payment_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.user_username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_paymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_handledBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_totalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_receiverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_receiverAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_receiverPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_receiverEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_deliveryStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_createdAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_updatedAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_deliveredAt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliveryMethod.delivery_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentMethod.payment_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.user_username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_paymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_handledBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_totalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_receiverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_receiverAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_receiverPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_receiverEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_deliveryStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_createdAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_updatedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_deliveredAt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_id })
+        </td>
+    </tr>
+}
+
+</table>

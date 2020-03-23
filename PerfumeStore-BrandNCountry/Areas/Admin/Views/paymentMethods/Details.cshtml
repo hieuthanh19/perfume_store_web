@@ -1,0 +1,43 @@
+﻿@model Model.EF.paymentMethod
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>paymentMethod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.payment_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
