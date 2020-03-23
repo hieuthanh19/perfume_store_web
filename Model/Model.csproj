@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="DAO\BrandDAO.cs" />
     <Compile Include="DAO\CountryDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\brand.cs" />
     <Compile Include="EF\category.cs" />

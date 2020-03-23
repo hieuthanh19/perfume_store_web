@@ -21,7 +21,7 @@ namespace Model.EF
         [StringLength(200), Display(Name = "Brand Name"), Required(ErrorMessage = "Please enter brand name")]
         public string brand_name { get; set; }
 
-        [Display(Name = "Country ID"), Required(ErrorMessage = "Please enter country name")]
+        [Display(Name = "Country ID"), Required(ErrorMessage = "Please select a country")]
         public int? country_id { get; set; }
 
 

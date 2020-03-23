@@ -17,7 +17,7 @@ namespace Model.EF
         [Key, Display(Name = "ID")]
         public int country_id { get; set; }
 
-        [Display(Name = "Country Name"), StringLength(100)]
+        [Display(Name = "Country Name"), StringLength(100), Required(ErrorMessage = "Please enter country name")]
         public string country_name { get; set; }
 
         [Display(Name = "Status"), Range(0, 1)]

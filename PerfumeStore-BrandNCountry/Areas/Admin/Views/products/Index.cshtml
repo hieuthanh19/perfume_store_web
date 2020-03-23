@@ -1,94 +1,138 @@
 ﻿@model IEnumerable<Model.EF.product>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Products (@Model.Count())</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <!-- Data list view starts -->
+    <section id="data-thumb-view" class="data-thumb-view-header">
+        <div class="action-btns d-none">
+            <div class="btn-dropdown mr-1 mb-1">
+                <div class="btn-group dropdown actions-dropodown">
+                </div>
+            </div>
+        </div>
+        <!-- dataTable starts -->
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.brand.brand_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.category.category_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_volume)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_originalPrice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_currentPrice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_createdAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.product_updatedAt)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.brand.brand_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.category.category_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_volume)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_originalPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_currentPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_description)
+                        </td>
+                        <td class="@(item.product_status == 1 ? "active" : "locked") ">
 
-<h2>Index</h2>
+                            @if (item.product_status == 1)
+                            {
+                                <i class='ficon feather icon-check-circle'></i>
+                            }
+                            else
+                            {
+                                <i class='ficon feather icon-x-circle'></i>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_createdAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.product_updatedAt)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.product_id }, new { @class = "text-success" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "text-info" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.product_id }, new { @class = "text-danger" })
+                        </td>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.brand.brand_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.category.category_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_volumne)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_originalPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_currentPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_createdAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_updatedAt)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.brand.brand_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category.category_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_volumne)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_originalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_currentPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_createdAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_updatedAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
-        </td>
-    </tr>
-}
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
-</table>
+        <!-- dataTable ends -->
+    </section>
+    <!-- Data list view end -->
+
+</div>
+

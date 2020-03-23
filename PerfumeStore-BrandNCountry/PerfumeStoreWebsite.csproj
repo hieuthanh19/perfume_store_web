@@ -167,6 +167,7 @@
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
     <Compile Include="Areas\Admin\Controllers\ordersController.cs" />
     <Compile Include="Areas\Admin\Controllers\paymentMethodsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\productImgsController.cs" />
     <Compile Include="Areas\Admin\Controllers\productsController.cs" />
     <Compile Include="Areas\Admin\Controllers\usersController.cs" />
     <Compile Include="Areas\Admin\Controllers\user_roleController.cs" />
@@ -1472,6 +1473,11 @@
     <Content Include="Areas\Admin\Views\users\Details.cshtml" />
     <Content Include="Areas\Admin\Views\users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\productImgs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\productImgs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\productImgs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\productImgs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\productImgs\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

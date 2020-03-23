@@ -18,7 +18,7 @@ namespace Model.EF
         [Key]
         public int category_id { get; set; }
 
-        [StringLength(100)]
+        [StringLength(100), Display(Name = "Category Name")]
         public string category_name { get; set; }
 
         public int? category_status { get; set; }
