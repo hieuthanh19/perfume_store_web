@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>order</h4>
+    <h4>Order</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -135,5 +135,7 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.order_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "orders")';return false;">
+        Back to list
+    </button>
 </p>

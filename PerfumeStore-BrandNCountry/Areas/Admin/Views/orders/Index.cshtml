@@ -5,10 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Order</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Dashboard")';return false;">
+        Back to Dashboard
+    </button>
+<p>
+<p>
+    <button type="button" class="btn btn-default btn-sm btn-success" onclick="location.href='@Url.Action("Create")';return false;">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
 </p>
 <table class="table">
     <tr>
@@ -60,7 +67,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.deliveryMethod.delivery_name)

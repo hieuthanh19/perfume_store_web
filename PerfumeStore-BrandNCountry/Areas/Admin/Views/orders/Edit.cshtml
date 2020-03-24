@@ -146,5 +146,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "orders")';return false;">
+        Back to list
+    </button>
 </div>

@@ -14,17 +14,17 @@ namespace Model.EF
         {
             orders = new HashSet<order>();
         }
-
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None), Display(Name = "Payment ID:"), Required(ErrorMessage = "Please enter id")]
         public int payment_id { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Please enter payment name"), Display(Name = "Payment name:"), StringLength(100)]
+
         public string payment_name { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column(TypeName = "text"), Required(ErrorMessage = "Please enter payment description"), Display(Name = "Payment description:")]
         public string payment_description { get; set; }
-
+        [Required(ErrorMessage = "Please enter payment status"), Display(Name = "Payment status:")]
         public int? payment_status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
