@@ -30,7 +30,7 @@ namespace Model.EF
         [Required(ErrorMessage = "Please enter order status"), Display(Name = "Order status:")]
         public int? order_status { get; set; }
 
-        [Required(ErrorMessage = "Please enter order payment method"), Display(Name = "Order payment method:")]
+        [/*Required(ErrorMessage = "Please enter order payment method"),*/ Display(Name = "Order payment method:")]
         public int? order_paymentMethod { get; set; }
 
         [Required(ErrorMessage = "Please enter order total cost"), Display(Name = "Order total cost:")]
@@ -48,7 +48,7 @@ namespace Model.EF
         [StringLength(100), Required(ErrorMessage = "Please enter order receiver email"), Display(Name = "Order recei email:")]
         public string order_receiverEmail { get; set; }
 
-        [Required(ErrorMessage = "Please enter delivery method id"), Display(Name = "Delivery method ID:")]
+        [/*Required(ErrorMessage = "Please enter delivery method id"),*/ Display(Name = "Delivery method ID:")]
         public int? deliveryMethod_id { get; set; }
 
         [Required(ErrorMessage = "Please enter order delivery status"), Display(Name = "Order delivery status:")]
