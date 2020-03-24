@@ -1,0 +1,148 @@
+/* Home Banner Area css
+============================================================================================ */
+.home_banner_area {
+  background: url(../img/banner/home-hero.jpg) no-repeat center bottom;
+  position: relative;
+  z-index: 1;
+  min-height: 900px; }
+  .home_banner_area .overlay {
+    background: rgba(0, 0, 0, 0.33);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+    z-index: -1; }
+  .home_banner_area .banner_inner {
+    position: relative;
+    width: 100%;
+    min-height: 900px; }
+    .home_banner_area .banner_inner .banner_content {
+      color: #222222;
+      padding-top: 110px;
+      align-self: center;
+      vertical-align: middle;
+      text-align: center; }
+      .home_banner_area .banner_inner .banner_content h3 {
+        font-size: 60px;
+        font-family: 'Roboto';
+        font-weight: 500;
+        line-height: 66px;
+        margin-bottom: 20px;
+        color: #ffffff; }
+      .home_banner_area .banner_inner .banner_content p {
+        font-size: 14px;
+        line-height: 24px;
+        font-family: 'Roboto';
+        font-weight: normal;
+        color: #ffffff; }
+      .home_banner_area .banner_inner .banner_content .white_bg_btn {
+        margin-top: 45px;
+        line-height: 50px;
+        border-radius: 5px;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 14px;
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1); }
+      .home_banner_area .banner_inner .banner_content .halemet_img {
+        text-align: right; }
+
+.blog_banner {
+  min-height: 780px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 0px; }
+  .blog_banner .banner_inner {
+    background: #04091e;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 780px;
+    z-index: 1; }
+    .blog_banner .banner_inner .overlay {
+      background: url(../img/banner/home-hero.jpg) no-repeat scroll center center;
+      opacity: .5;
+      height: 125%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      z-index: -1; }
+    .blog_banner .banner_inner .blog_b_text {
+      max-width: 700px;
+      margin: auto;
+      color: #fff;
+      margin-top: 40px; }
+      .blog_banner .banner_inner .blog_b_text h2 {
+        font-size: 60px;
+        font-weight: 500;
+        font-family: 'Roboto';
+        line-height: 66px;
+        margin-bottom: 15px; }
+      .blog_banner .banner_inner .blog_b_text p {
+        font-size: 16px;
+        margin-bottom: 35px; }
+      .blog_banner .banner_inner .blog_b_text .white_bg_btn {
+        line-height: 42px;
+        padding: 0px 45px; }
+
+.banner_box {
+  max-width: 1620px;
+  margin: auto; }
+
+.banner_area {
+  position: relative;
+  z-index: 1;
+  min-height: 395px; }
+  .banner_area .banner_inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 395px;
+    background: url(../img/banner/page-title-banner.jpg) no-repeat center bottom;
+    background-size: contain;
+    z-index: 1; }
+    .banner_area .banner_inner .overlay {
+      background: rgba(0, 0, 0, 0.33);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0; }
+    .banner_area .banner_inner .banner_content {
+      position: relative;
+      z-index: 10; }
+      .banner_area .banner_inner .banner_content h2 {
+        color: #ffffff;
+        font-size: 48px;
+        font-family: 'Roboto';
+        margin-bottom: 12px;
+        font-weight: 500;
+        margin-top: 120px; }
+      .banner_area .banner_inner .banner_content .page_link a {
+        font-size: 14px;
+        color: #ffffff;
+        font-family: 'Roboto';
+        margin-right: 32px;
+        position: relative; }
+        .banner_area .banner_inner .banner_content .page_link a:before {
+          content: "\e87a";
+          font-family: 'Linearicons-Free';
+          font-size: 14px;
+          position: absolute;
+          right: -25px;
+          top: 50%;
+          transform: translateY(-50%); }
+        .banner_area .banner_inner .banner_content .page_link a:last-child {
+          margin-right: 0px; }
+          .banner_area .banner_inner .banner_content .page_link a:last-child:before {
+            display: none; }
+        .banner_area .banner_inner .banner_content .page_link a:hover {
+          color: #017f42; }
+
+/* End Home Banner Area css
+============================================================================================ */
+
+/*# sourceMappingURL=breadcrumb.css.map */

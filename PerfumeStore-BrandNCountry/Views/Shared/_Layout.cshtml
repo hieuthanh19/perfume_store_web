@@ -3,40 +3,62 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title | Perfume Store</title>
+
+    <link rel="shortcut icon" href="~/Assets/img/favicon.png" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Assets/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="~/Assets/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/Assets/vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="~/Assets/vendors/jquery-ui/jquery-ui.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="stylesheet" href="~/Assets/css/responsive.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    @RenderPage("_NavBar.cshtml")
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderBody()
+
+    @RenderPage("_Footer.cshtml")
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Assets/js/popper.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/stellar.js"></script>
+    <script src="~/Assets/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/Assets/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/Assets/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Assets/vendors/isotope/isotope-min.js"></script>
+    <script src="~/Assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Assets/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Assets/vendors/flipclock/timer.js"></script>
+    <script src="~/Assets/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="~/Assets/js/mail-script.js"></script>
+    <script src="~/Assets/js/theme.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var currentURL = window.location.href.toLowerCase();
+            var listHref = $('.nav-item nav-link');
+            var finalIndex = -1
+            for (var i = 0; i < listHref.length; i++) {
+                var href = listHref[i].href.toLowerCase();
+                if (currentURL.startsWith(href)) {
+                    //parent.className = "active";
+                    finalIndex = i;
+                }
+            }
+            listHref[finalIndex].parentElement.className = "nav-item active";
+        });
+    </script>
 </body>
 </html>
