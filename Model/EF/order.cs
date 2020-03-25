@@ -54,13 +54,15 @@ namespace Model.EF
         [Required(ErrorMessage = "Please enter order delivery status"), Display(Name = "Order delivery status:")]
         public int? order_deliveryStatus { get; set; }
 
-        [Column(TypeName = "datetime2")]
+        
+        [Column(TypeName = "datetime2"), Display(Name = "Order create at:")]
         public DateTime? order_createdAt { get; set; }
 
-        [Column(TypeName = "datetime2")]
+        
+        [Column(TypeName = "datetime2"), Display(Name = "Order update at:")]
         public DateTime? order_updatedAt { get; set; }
 
-        [Column(TypeName = "datetime2")]
+        [Column(TypeName = "datetime2"), Display(Name = "Order delivery at:")]
         public DateTime? order_deliveredAt { get; set; }
 
         public virtual deliveryMethod deliveryMethod { get; set; }

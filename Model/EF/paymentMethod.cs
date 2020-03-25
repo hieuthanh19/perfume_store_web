@@ -24,6 +24,7 @@ namespace Model.EF
 
         [Column(TypeName = "text"), Required(ErrorMessage = "Please enter payment description"), Display(Name = "Payment description:")]
         public string payment_description { get; set; }
+
         [Required(ErrorMessage = "Please enter payment status"), Display(Name = "Payment status:")]
         public int? payment_status { get; set; }
 

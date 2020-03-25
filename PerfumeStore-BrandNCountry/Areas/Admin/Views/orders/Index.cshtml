@@ -5,121 +5,174 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Order</h2>
 
-<p>
-    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Dashboard")';return false;">
-        Back to Dashboard
-    </button>
-<p>
-<p>
-    <button type="button" class="btn btn-default btn-sm btn-success" onclick="location.href='@Url.Action("Create")';return false;">
-        <span class="glyphicon glyphicon-plus"></span>
-    </button>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.deliveryMethod.delivery_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.paymentMethod.payment_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user.user_username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_paymentStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_handledBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_totalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_receiverName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_receiverAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_receiverPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_receiverEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_deliveryStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_createdAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_updatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.order_deliveredAt)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.deliveryMethod.delivery_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.paymentMethod.payment_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.user_username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_paymentStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_handledBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_totalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_receiverName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_receiverAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_receiverPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_receiverEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_deliveryStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_createdAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_updatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.order_deliveredAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.order_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.order_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.order_id })
-        </td>
-    </tr>
-}
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Delivery method (@Model.Count())</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <!-- Data list view starts -->
+    <section id="data-thumb-view" class="data-thumb-view-header">
+        <div class="action-btns d-none">
+            <div class="btn-dropdown mr-1 mb-1">
+                <div class="btn-group dropdown actions-dropodown">
+                </div>
+            </div>
+        </div>
+        <!-- dataTable starts -->
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <tr>
 
-</table>
+                        <th>
+                            @Html.DisplayNameFor(model => model.deliveryMethod.delivery_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.paymentMethod.payment_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.user.user_username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_paymentStatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_handledBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_totalCost)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_receiverName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_receiverAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_receiverPhone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_receiverEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_deliveryStatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_createdAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_updatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order_deliveredAt)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.deliveryMethod.delivery_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.paymentMethod.payment_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user.user_username)
+                        </td>
+
+                        <td class="@(item.order_paymentStatus == 1 ? "active" : "locked") ">
+
+                            @if (item.order_paymentStatus == 1)
+                            {
+                                <i class='ficon feather icon-check-circle'></i>
+                            }
+                            else
+                            {
+                                <i class='ficon feather icon-x-circle'></i>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_handledBy)
+                        </td>
+                        
+                        <td class="@(item.order_status == 1 ? "active" : "locked") ">
+
+                            @if (item.order_status == 1)
+                            {
+                                <i class='ficon feather icon-check-circle'></i>
+                            }
+                            else
+                            {
+                                <i class='ficon feather icon-x-circle'></i>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_totalCost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_receiverName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_receiverAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_receiverPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_receiverEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_deliveryStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_createdAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_updatedAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_deliveredAt)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.order_id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.order_id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.order_id })
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- dataTable ends -->
+    </section>
+    <!-- Data list view end -->
+
+</div>
+

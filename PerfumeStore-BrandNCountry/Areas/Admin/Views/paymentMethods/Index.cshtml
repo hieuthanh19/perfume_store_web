@@ -38,9 +38,7 @@
             <table class="table data-thumb-view">
                 <thead>
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.payment_id)
-                        </th>
+                        
                         <th>
                             @Html.DisplayNameFor(model => model.payment_name)
                         </th>
@@ -58,9 +56,7 @@
                     {
                     <tr>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.paymen_id)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.payment_name)
                         </td>
@@ -68,9 +64,9 @@
                             @Html.DisplayFor(modelItem => item.payment_description)
                         </td>
                         
-                        <td class="@(item.paymen_status == 1 ? "active" : "locked") ">
+                        <td class="@(item.payment_status == 1 ? "active" : "locked") ">
 
-                            @if (item.paymen_status == 1)
+                            @if (item.payment_status == 1)
                                 {
                             <i class='ficon feather icon-check-circle'></i>
                                 }
