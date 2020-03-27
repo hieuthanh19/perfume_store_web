@@ -23,7 +23,7 @@ namespace Model.EF
         [StringLength(200), Display(Name = "Product Name"), Required(ErrorMessage ="Please enter Product name!")]
         public string product_name { get; set; }
 
-        [Display(Name ="Volume"), Range(1, 1000)]
+        [Display(Name ="Volume (ml)"), Range(1, 1000)]
         public double? product_volume { get; set; }
 
         [Display(Name = "Quantity"), Range(0, 10000)]
@@ -33,16 +33,16 @@ namespace Model.EF
 
         public int brand_id { get; set; }
 
-        [Display(Name = "Original Price"), Range(typeof(double), "0.00", "10000.00")]
+        [Display(Name = "Original Price ($)"), Range(typeof(double), "0.00", "10000.00")]
         public double? product_originalPrice { get; set; }
 
-        [Display(Name = "Current Price"), Range(typeof(double), "0.00", "10000.00")]
+        [Display(Name = "Current Price ($)"), Range(typeof(double), "0.00", "10000.00")]
         public double? product_currentPrice { get; set; }
 
         [Display(Name = "Description")]
         public string product_description { get; set; }
 
-        [Display(Name = "Status"), Range(0, 1)]
+        [Display(Name = "Status"), Range(0, 2)]
         public int? product_status { get; set; }
 
         [Column(TypeName = "datetime2"), Display(Name ="Created At")]

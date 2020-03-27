@@ -16,8 +16,10 @@ namespace Model.EF
 
         [Required]
         [StringLength(200)]
+        [Display(Name ="Product Image")]
         public string img_path { get; set; }
 
+        [Required, Range(0, 1)]
         public int? img_status { get; set; }
 
         public virtual product product { get; set; }

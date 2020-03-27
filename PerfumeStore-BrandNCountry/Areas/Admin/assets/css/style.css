@@ -9,3 +9,21 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+/*Product status color*/
+.table tbody td .product-status-0 {
+    color: red;
+}
+.table tbody td .product-status-1 {
+    color: green;
+}
+.table tbody td .product-status-2 {
+    color: orange;
+}
+
+
+
+tbody tr td {
+    text-overflow: ellipsis;
+}

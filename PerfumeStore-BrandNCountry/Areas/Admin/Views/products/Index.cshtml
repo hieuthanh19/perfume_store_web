@@ -9,14 +9,6 @@
             <div class="col-12">
                 <h2 class="content-header-title float-left mb-0">Products (@Model.Count())</h2>
                 <div class="breadcrumb-wrapper col-12">
-                    @*<ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="./">Dashboard</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                Brands
-                            </li>
-                        </ol>*@
                 </div>
             </div>
         </div>
@@ -37,8 +29,14 @@
                 <thead>
                     <tr>
                         <th>
+                            @Html.DisplayNameFor(model => model.product_id)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.product_name)
                         </th>
+                        @*<td>
+                                @Html.DisplayNameFor(Model => Model.productImgs.First().img_path)
+                            </td>*@
                         <th>
                             @Html.DisplayNameFor(model => model.brand.brand_name)
                         </th>
@@ -57,72 +55,84 @@
                         <th>
                             @Html.DisplayNameFor(model => model.product_currentPrice)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.product_description)
-                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.product_description)
+                            </th>*@
                         <th>
                             @Html.DisplayNameFor(model => model.product_status)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.product_createdAt)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.product_updatedAt)
-                        </th>
+                        @*<th>
+                                @Html.DisplayNameFor(model => model.product_createdAt)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.product_updatedAt)
+                            </th>*@
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.brand.brand_name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.category.category_name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_volume)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_quantity)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_originalPrice)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_currentPrice)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_description)
-                        </td>
-                        <td class="@(item.product_status == 1 ? "active" : "locked") ">
-
-                            @if (item.product_status == 1)
-                            {
-                                <i class='ficon feather icon-check-circle'></i>
-                            }
-                            else
-                            {
-                                <i class='ficon feather icon-x-circle'></i>
-                            }
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_createdAt)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.product_updatedAt)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.product_id }, new { @class = "text-success" }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "text-info" }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.product_id }, new { @class = "text-danger" })
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_name)
+                            </td>
+                            @*<td>
+                                    <img src= "@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.productImgs.First().img_path"/>
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.brand.brand_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.category.category_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_volume)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_originalPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.product_currentPrice)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.product_description)
+                                </td>*@
+                            <td>
+                                @switch (item.product_status)
+                                {
+                                    case 0:
+                                        <i class='ficon feather icon-x-circle product-status-0'></i>
+                                        break;
+                                    case 1:
+                                        <i class='ficon feather icon-check-circle product-status-1'></i>
+                                        break;
+                                    case 2:
+                                        <i class='ficon feather icon-alert-circle product-status-2'></i>
+                                        break;
+                                    default: 
+                                        <i class='ficon feather icon-help-circle'></i>
+                                        break;
+                                }                                
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.product_createdAt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.product_updatedAt)
+                                </td>*@
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.product_id }, new { @class = "text-success" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "text-info" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.product_id }, new { @class = "text-danger" })
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

@@ -171,6 +171,7 @@
     <Compile Include="Areas\Admin\Controllers\productsController.cs" />
     <Compile Include="Areas\Admin\Controllers\usersController.cs" />
     <Compile Include="Areas\Admin\Controllers\user_roleController.cs" />
+    <Compile Include="Common\CommonUtils.cs" />
     <Compile Include="Areas\Admin\Models\LogInModel.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\UserLogin.cs" />
