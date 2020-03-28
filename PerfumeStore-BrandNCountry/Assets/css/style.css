@@ -2856,7 +2856,9 @@ h6 {
   border-radius: 5px; }
   .green_btn:hover {
     background-position: right center;
-    color: #fff; }
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 /* End Main Button Area css
 ============================================================================================ */
@@ -2927,15 +2929,12 @@ h6 {
         border-radius: 3px;
         background: #fff;
         line-height: 40px;
-        color: #222222;
+        color: #017f42;
         margin-bottom: 5px;
         margin-right: 5px; }
         .f_p_item .f_p_img .p_icon a:last-child {
           margin-bottom: 0px;
           margin-right: 0px; }
-        .f_p_item .f_p_img .p_icon a:hover {
-          color: #fff;
-          background: #017f42; }
   .f_p_item h4 {
     color: #222222;
     font-size: 16px;
@@ -2947,8 +2946,21 @@ h6 {
     margin-bottom: 0px;
     font-size: 18px;
     color: #777777; }
-  .f_p_item:hover .f_p_img .p_icon {
-    right: 35px; }
+  .f_p_item:hover {
+    /*border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/ }
+    .f_p_item:hover .f_p_img .p_icon {
+      right: 35px; }
+      .f_p_item:hover .f_p_img .p_icon a {
+        color: #000;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        background: #fbfbfb; }
+        .f_p_item:hover .f_p_img .p_icon a:hover {
+          color: #fff;
+          background: #017f42;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .latest_product_inner {
   margin-bottom: -35px; }

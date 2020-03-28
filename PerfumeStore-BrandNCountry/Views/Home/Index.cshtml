@@ -1,6 +1,12 @@
-﻿@{
+﻿@model IEnumerable<Model.EF.product>
+@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var newProductList = Model.Where(p => p.product_status == 1).OrderByDescending(p => p.product_createdAt).Take(10).ToList();
+    var featureProductList = Model.Where(p => p.product_status == 1).Take(10).OrderBy(p => p.product_id).ToList();
+    var womenProductList = Model.Where(p => p.product_status == 1 && p.category_id == 1).Take(10).OrderBy(p => p.product_id).ToList();
+    var menProductList = Model.Where(p => p.product_status == 1 && p.category_id == 2).Take(10).OrderBy(p => p.product_id).ToList();
 }
 
 <!--================Home Banner Area =================-->
@@ -29,7 +35,7 @@
             <div class="col-lg-6">
                 <a class="hot_deal_link" href="category.jsp?brandId=1">
                     <div class="hot_deal_box">
-                        <img class="img-fluid" src="~/img/product/hot_deals/chanel-deal.jpg" alt="Hot Deal">
+                        <img class="img-fluid" src="~/Assets/img/product/hot_deals/chanel-deal.jpg" alt="Hot Deal">
                         <div class="content">
                             <h2>Chanel's Collections</h2>
                             <p>Explore</p>
@@ -41,7 +47,7 @@
             <div class="col-lg-6">
                 <a class="hot_deal_link" href="category.jsp?brandId=4">
                     <div class="hot_deal_box">
-                        <img class="img-fluid" src="~/img/product/hot_deals/versace-deal.jpg" alt="Hot Deal">
+                        <img class="img-fluid" src="~/Assets/img/product/hot_deals/versace-deal.jpg" alt="Hot Deal">
                         <div class="content">
                             <h2>The Charming of Versace</h2>
                             <p>Explore</p>
@@ -58,24 +64,68 @@
     <div class="container-fluid">
         <div class="clients_slider owl-carousel">
             <div class="item">
-                <img src="~/img/clients-logo/chanel.png" alt="Brand Logo">
+                <img src="~/Assets/img/clients-logo/chanel.png" alt="Brand Logo">
             </div>
             <div class="item">
-                <img src="~/img/clients-logo/dior.png" alt="Brand Logo">
+                <img src="~/Assets/img/clients-logo/dior.png" alt="Brand Logo">
             </div>
             <div class="item">
-                <img src="~/img/clients-logo/lolita-lempicka.png" alt="Brand Logo">
+                <img src="~/Assets/img/clients-logo/lolita-lempicka.png" alt="Brand Logo">
             </div>
             <div class="item">
-                <img src="~/img/clients-logo/versace.png" alt="Brand Logo">
+                <img src="~/Assets/img/clients-logo/versace.png" alt="Brand Logo">
             </div>
             <div class="item">
-                <img src="~/img/clients-logo/victoria-secret.png" alt="Brand Logo">
+                <img src="~/Assets/img/clients-logo/victoria-secret.png" alt="Brand Logo">
             </div>
         </div>
     </div>
 </section>
 <!--================End Clients Logo Area =================-->
+<!--================New Product Area =================-->
+<section class="new_product_area section_gap" id="new-product">
+    <div class="main_box">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main_title">
+                    <h2>New Arrivals</h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                @*Get 10 product sorted by order ID with acitve status *@
+                @foreach (var item in newProductList)
+                {
+                    <div class="col ">
+                        <div class="f_p_item">
+                            <div class="f_p_img">
+                                <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
+                                <div class="p_icon">
+                                    <a href="#">
+                                        <i class="lnr lnr-heart"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="lnr lnr-cart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                                <h4>@item.product_name</h4>
+                            </a>
+
+                            <h5>$ @item.product_currentPrice</h5>
+                        </div>
+
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <a class="green_btn mx-auto" href="category.jsp">See more</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End New Product Area =================-->
 <!--================Feature Product Area =================-->
 <section class="feature_product_area section_gap" id="feature-product">
     <div class="main_box">
@@ -87,19 +137,14 @@
                 </div>
             </div>
             <div class="row">
+                @*Get 10 product sorted by order ID with acitve status *@
 
-                @*<%                            int i = 0;
-                for (Product p : productList) {
-                ArrayList<Product_Image>
-                    productImgList = productImgM.getProduct_Image(p.getProduct_id());
-                    if (i < 10) {
-                    if (p.getProduct_status() == 1) {
-                    %>*@
-
-                    <div class="col col<%=i + 1%>">
+                @foreach (var item in featureProductList)
+                {
+                    <div class="col ">
                         <div class="f_p_item">
                             <div class="f_p_img">
-                                @*<img class="img-fluid" src="<%=imgDir + p.getBrand_id() + "/" + productImgList.get(0).getUrl()%>"  alt="product image">*@
+                                <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
@@ -109,26 +154,15 @@
                                     </a>
                                 </div>
                             </div>
-
-
-                            <a href="product-detail.jsp?id=<%=p.getProduct_id()%>">
-                                @*<h4><%=p.getName()%></h4>*@
+                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                                <h4>@item.product_name</h4>
                             </a>
 
-                            <h5>$ @*<%=p.getCurrent_price()%>*@</h5>
+                            <h5>$ @item.product_currentPrice</h5>
                         </div>
 
                     </div>
-                    <%
-                    ++i;
-                    }
-                    } else {
-                    break;
-                    }
-                    }
-                    %>
-
-
+                }
             </div>
             <div class="row">
                 <a class="green_btn mx-auto" href="category.jsp">See more</a>
@@ -148,18 +182,13 @@
                 </div>
             </div>
             <div class="row">
-                @*<%
-                i = 0;
-                for (Product p : productList) {
-                ArrayList<Product_Image>
-                    productImgList = productImgM.getProduct_Image(p.getProduct_id());
-                    if (i < Product_Per_Page) {
-                    if (p.getProduct_status() == 1 && p.getCategoty_id() == 1) {
-                    %>*@
-                    <div class="col col<%=i + 1%>">
+
+                @foreach (var item in womenProductList)
+                {
+                    <div class="col ">
                         <div class="f_p_item">
                             <div class="f_p_img">
-                                <img class="img-fluid" src="<%=imgDir + p.getBrand_id() + "/" + productImgList.get(0).getUrl()%>"  alt="product image">
+                                <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
@@ -169,21 +198,17 @@
                                     </a>
                                 </div>
                             </div>
-                            <a href="product-detail.jsp?id=<%=p.getProduct_id()%>">
-                                <h4>@*<%=p.getName()%>*@</h4>
+                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                                <h4>@item.product_name</h4>
                             </a>
-                            <h5>$ @*<%=p.getCurrent_price()%>*@</h5>
+
+                            <h5>$ @item.product_currentPrice</h5>
                         </div>
+
                     </div>
-                    @*<%
-                    ++i;
-                    }
-                    } else {
-                    break;
-                    }
-                    }
-                    %>*@
+                }
             </div>
+
             <div class="row">
                 <a class="green_btn mx-auto" href="category.jsp?categoryId=1">See more</a>
             </div>
@@ -202,18 +227,13 @@
                 </div>
             </div>
             <div class="row">
-                @*<%
-                i = 0;
-                for (Product p : productList) {
-                ArrayList<Product_Image>
-                    productImgList = productImgM.getProduct_Image(p.getProduct_id());
-                    if (i < 10) {
-                    if (p.getProduct_status() == 1 && p.getCategoty_id() == 2) {
-                    %>*@
-                    <div class="col col<%=i + 1%>">
+
+                @foreach (var item in menProductList)
+                {
+                    <div class="col ">
                         <div class="f_p_item">
                             <div class="f_p_img">
-                                <img class="img-fluid" src="<%=imgDir + p.getBrand_id() + "/" + productImgList.get(0).getUrl()%>"  alt="product image">
+                                <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
@@ -223,20 +243,15 @@
                                     </a>
                                 </div>
                             </div>
-                            <a href="product-detail.jsp?id=<%=10%>">
-                                <h4>@*<%=productList.get(i).getName()%>*@</h4>
+                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                                <h4>@item.product_name</h4>
                             </a>
-                            <h5>$ @*<%=productList.get(i).getCurrent_price()%>*@</h5>
+
+                            <h5>$ @item.product_currentPrice</h5>
                         </div>
+
                     </div>
-                    @*<%
-                    ++i;
-                    }
-                    } else {
-                    break;
-                    }
-                    }
-                    %>*@
+                }
             </div>
             <div class="row">
                 <a class="green_btn mx-auto" href="category.jsp?categoryId=2">See more</a>
