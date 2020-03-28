@@ -2,55 +2,64 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages.Html;
 
 namespace PerfumeStore_BrandNCountry.Common
 {
     public  class CommonUtils
     {
+       
+
         /// <summary>
-        /// Get Status ID for products
+        /// Create a select list of product statuses
         /// </summary>
-        /// <param name="statusName"></param>
         /// <returns></returns>
-        public  int getProductStatusIdFromText(string statusName)
+        public IEnumerable<SelectListItem> getProductStatusList()
         {
-            int statusId = -1;
-            switch (statusName.ToLower())
+            List<SelectListItem> statusList = new List<SelectListItem>();
+            statusList.Add(new SelectListItem
             {
-                case "locked":
-                    statusId = 0;
+                Text = "Locked",
+                Value = "0",
+
+            });
+            statusList.Add(new SelectListItem
+            {
+                Text = "In stock",
+                Value = "1",
+
+            });
+            statusList.Add(new SelectListItem
+            {
+                Text = "Out of stock",
+                Value = "2",
+
+            });
+
+            return statusList.AsEnumerable();
+        }
+        /// <summary>
+        /// Get product status from database and get status text
+        /// </summary>        
+        /// <param name="productStatus"></param>
+        /// <returns></returns>
+        public string getProductStatusTextFromProductStatusList(int? productStatus)
+        {
+            string statusText = null;
+            IEnumerable<SelectListItem> productStatusList = getProductStatusList();
+            foreach (var item in productStatusList)
+            {
+               
+                if (int.Parse(item.Value) == productStatus)
+                {
+                    statusText = item.Text;
                     break;
-                case "in stock":
-                    statusId = 1;
-                    break;
-                case "out of stock":
-                    statusId = 2;
-                    break;
-                default:
-                    break;
+                }
+                
             }
-            return statusId;
+            return statusText;
         }
 
-
-        public int getStatusIdFromText(string statusName)
-        {
-            int statusId = -1;
-            switch (statusName.ToLower())
-            {
-                case "locked":
-                    statusId = 0;
-                    break;
-                case "active":
-                    statusId = 1;
-                    break;
-                case "out of stock":
-                    statusId = 2;
-                    break;
-                default:
-                    break;
-            }
-            return statusId;
-        }
+       
     }
 }

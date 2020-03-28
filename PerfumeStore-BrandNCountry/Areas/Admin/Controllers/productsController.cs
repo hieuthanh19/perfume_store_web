@@ -18,14 +18,15 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
         private CommonUtils commonUtils = new CommonUtils();
-
+        private string imgDir = "/Assets/img/product/single-product";
 
         // GET: Admin/products
         public ActionResult Index()
         {
 
             var products = db.products.Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
-            ViewBag.imgPath = Server.MapPath("~/Assets/img/product/single-product/");
+            //ViewBag.imgPath = Server.MapPath("~/Assets/img/product/single-product/");
+            ViewBag.imgPath = imgDir;
             return View(products.ToList());
         }
 
@@ -41,6 +42,8 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.imgPath = imgDir;
+            ViewBag.statusText = commonUtils.getProductStatusTextFromProductStatusList(product.product_status);
             return View(product);
         }
 
@@ -49,10 +52,8 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         {
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name");
             ViewBag.category_id = new SelectList(db.categories, "category_id", "category_name");
-
-            //List<string> product_statusList = new List<string>(new string[] {"Locked", "In stock", "Out of stock" });           
-            List<string> product_statusList = new List<string> { "Locked", "In stock", "Out of stock" };
-            ViewBag.product_status = new SelectList(product_statusList);
+                       
+            ViewBag.product_status = new SelectList(commonUtils.getProductStatusList(), "Value", "Text");
             return View();
         }
 
@@ -70,7 +71,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
                     //product 
                     model.Product.product_createdAt = DateTime.Now;
                     model.Product.product_updatedAt = DateTime.Now;
-                    int status = commonUtils.getProductStatusIdFromText(Request.Form["product_status"]);
+                    int status = int.Parse(Request.Form["product_status"]);
                     int category_id = int.Parse(Request.Form["category_id"]);
                     int brand_id = int.Parse(Request.Form["brand_id"]);
                     model.Product.product_status = status;
@@ -111,9 +112,8 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
 
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name", model.Product.brand_id);
-            ViewBag.category_id = new SelectList(db.categories, "category_id", "category_name", model.Product.category_id);
-            List<string> product_statusList = new List<string> { "Locked", "In stock", "Out of stock" };
-            ViewBag.product_status = new SelectList(product_statusList);
+            ViewBag.category_id = new SelectList(db.categories, "category_id", "category_name", model.Product.category_id);            
+            ViewBag.product_status = new SelectList(commonUtils.getProductStatusList(), "Value", "Text", model.Product.product_status);
             return View(model);
         }
 
@@ -126,7 +126,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             ProductNProductImgDAO productNProductImgDAO = new ProductNProductImgDAO();
             productNProductImgDAO.Product = db.products.Find(id);
-            productNProductImgDAO.productImg = db.productImgs.Where(p => p.product_id == id).First();
+            productNProductImgDAO.productImg = db.productImgs.Where(proImg => proImg.product_id == id).First();
             if (productNProductImgDAO.Product == null)
             {
                 return HttpNotFound();
@@ -134,8 +134,10 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name", productNProductImgDAO.Product.brand_id);
             ViewBag.category_id = new SelectList(db.categories, "category_id", "category_name", productNProductImgDAO.Product.category_id);
-            List<string> product_statusList = new List<string> { "Locked", "In stock", "Out of stock" };
-            ViewBag.product_status = new SelectList(product_statusList);
+            //List<string> product_statusList = new List<string> { "Locked", "In stock", "Out of stock" };
+            ViewBag.product_status = new SelectList(commonUtils.getProductStatusList(), "Value", "Text", productNProductImgDAO.Product.product_status);
+
+            ViewBag.imgPath = imgDir;
             return View(productNProductImgDAO);
         }
 
@@ -160,14 +162,13 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             {
                 //PRODUCT
                 //get data
-                int status = commonUtils.getProductStatusIdFromText(Request.Form["product_status"]);
+                int status = int.Parse(Request.Form["product_status"]);
                 int category_id = int.Parse(Request.Form["category_id"]);
                 int brand_id = int.Parse(Request.Form["brand_id"]);
                 //set data
                 model.Product.product_status = status;
                 model.Product.category_id = category_id;
-                model.Product.brand_id = brand_id;
-                model.Product.product_createdAt = DateTime.Now;
+                model.Product.brand_id = brand_id;                
                 model.Product.product_updatedAt = DateTime.Now;
                 db.Entry(model.Product).State = EntityState.Modified;
 
@@ -207,12 +208,9 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-
-
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name", model.Product.brand_id);
             ViewBag.category_id = new SelectList(db.categories, "category_id", "category_name", model.Product.category_id);
-            List<string> product_statusList = new List<string> { "Locked", "In stock", "Out of stock" };
-            ViewBag.product_status = new SelectList(product_statusList);
+            ViewBag.product_status = new SelectList(commonUtils.getProductStatusList(), "Value", "Text", model.Product.product_status);
             return View(model);
         }
 
@@ -228,6 +226,8 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.imgPath = imgDir;
+            ViewBag.statusText = commonUtils.getProductStatusTextFromProductStatusList(product.product_status);
             return View(product);
         }
 
@@ -237,6 +237,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             product product = db.products.Find(id);
+            db.productImgs.Remove(product.productImgs.First());
             db.products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");

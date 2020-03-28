@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Collections;
 
 namespace Model.DAO
 {
@@ -21,7 +22,7 @@ namespace Model.DAO
         {
             var r = new Regex(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$");
             return r.IsMatch(fileName);
-        }
+        }       
 
       
 

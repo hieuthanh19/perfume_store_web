@@ -31,68 +31,85 @@
         @Html.ActionLink("Back to List", "Index", null, new { @class = "col-md-2 mt-1" })
     </div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.brand.brand_name)
-        </dt>
+    <dl class="dl-horizontal detail-list">
+        <div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.brand.brand_name)
-        </dd>
+            <div class="col-md-7">
+                <dt>
+                    @Html.DisplayNameFor(model => model.product_name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.category.category_name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.product_name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.category.category_name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.brand.brand_name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.brand.brand_name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.category.category_name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_volume)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.category.category_name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_volume)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.product_volume)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_quantity)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.product_volume)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_quantity)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.product_quantity)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_originalPrice)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.product_quantity)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_originalPrice)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.product_originalPrice)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_currentPrice)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.product_originalPrice)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_currentPrice)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.product_currentPrice)
+                </dt>
 
-        <dt>
+                <dd>
+                    @Html.DisplayFor(model => model.product_currentPrice)
+                </dd>
+
+
+            </div>
+            <div class="col-md-5">
+                @*<dt>
+                    @Html.DisplayNameFor(model => model.productImgs.First().img_path)
+                </dt>*@
+
+                <dd class="product-img">
+                    <img src="@ViewBag.imgPath/@Model.product_id/@Model.productImgs.First().img_path" alt="@Model.product_name" />
+                </dd>
+            </div>
+
+        </div>
+
+        <dt >
             @Html.DisplayNameFor(model => model.product_description)
         </dt>
 
-        <dd>
+        <dd class="col-md-5">
             @Html.DisplayFor(model => model.product_description)
         </dd>
 
@@ -101,7 +118,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.product_status)
+            @ViewBag.statusText
         </dd>
 
         <dt>
@@ -119,6 +136,7 @@
         <dd>
             @Html.DisplayFor(model => model.product_updatedAt)
         </dd>
+
 
     </dl>
 </div>

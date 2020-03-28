@@ -10,7 +10,7 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
-
+/*INDEX*/
 /*Product status color*/
 .table tbody td .product-status-0 {
     color: red;
@@ -21,9 +21,30 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .table tbody td .product-status-2 {
     color: orange;
 }
+.table tbody td .product-img{
+    height: 120px;
+    width: 100px;
+}
+.table tbody td .actions a{
+    margin:3px;
+}
+/*DETAIL*/
+.detail-list .product-img img {
+    height: 300px;
+    width: 300px;
+}
 
+/*EDIT*/
+.edit .product-img {
+    height: 240px;
+    width: 200px;
+}
 
-
+/*DELETE*/
+.delete .product-img img {
+    height: 300px;
+    width: 300px;
+}
 tbody tr td {
     text-overflow: ellipsis;
 }

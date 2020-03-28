@@ -34,9 +34,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.product_name)
                         </th>
-                        @*<td>
-                                @Html.DisplayNameFor(Model => Model.productImgs.First().img_path)
-                            </td>*@
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.productImgs.First().img_path)
+                        </th>
                         <th>
                             @Html.DisplayNameFor(model => model.brand.brand_name)
                         </th>
@@ -80,9 +80,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.product_name)
                             </td>
-                            @*<td>
-                                    <img src= "@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.productImgs.First().img_path"/>
-                                </td>*@
+                            <td>
+                                <img class="product-img" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name" />
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.brand.brand_name)
                             </td>
@@ -116,10 +116,10 @@
                                     case 2:
                                         <i class='ficon feather icon-alert-circle product-status-2'></i>
                                         break;
-                                    default: 
+                                    default:
                                         <i class='ficon feather icon-help-circle'></i>
                                         break;
-                                }                                
+                                }
                             </td>
                             @*<td>
                                     @Html.DisplayFor(modelItem => item.product_createdAt)
@@ -127,10 +127,21 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.product_updatedAt)
                                 </td>*@
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.product_id }, new { @class = "text-success" }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "text-info" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.product_id }, new { @class = "text-danger" })
+                            <td >
+                                <div class="actions row">
+                                    <a class="text-info" href="@Url.Action("Details", "products", new { id = item.product_id })">
+                                        <i class='ficon feather icon-list'></i>
+                                    </a> 
+                                    <a class="text-warning" href="@Url.Action("Edit", "products", new { id = item.product_id })">
+                                        <i class='ficon feather icon-edit-1'></i>
+                                    </a> 
+                                    <a class="text-danger" href="@Url.Action("Delete", "products", new { id = item.product_id })">
+                                        <i class='ficon feather icon-trash-2'></i>
+                                    </a>
+                                </div>
+
+                                @*@Html.ActionLink("Details", "Details", new { id = item.product_id }, new { @class = "text-info" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.product_id }, new { @class = "text-danger" })*@
                             </td>
                         </tr>
                     }
