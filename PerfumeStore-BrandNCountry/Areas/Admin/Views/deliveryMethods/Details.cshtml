@@ -5,12 +5,35 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Details</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div>
-    <h4>Delivery Method</h4>
+<div class="content-body">
+    <div class="row">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.delivery_id }, new { @class = "btn btn-primary col-md-1" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "col-md-2 mt-1" })
+    </div>
+
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.delivery_name)
         </dt>
@@ -37,9 +60,5 @@
 
     </dl>
 </div>
-<p>
-    
-    <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "deliveryMethods")';return false;">
-        Back to list
-    </button>
-</p>
+
+
