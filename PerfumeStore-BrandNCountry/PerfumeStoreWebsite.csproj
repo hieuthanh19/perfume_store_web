@@ -177,6 +177,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1383,8 +1384,8 @@
     <Content Include="Assets\css\_timer.css" />
     <Content Include="Assets\css\_variables.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Assets\img\banner\banner-2.jpg" />
@@ -1680,18 +1681,17 @@
     <Content Include="Areas\Admin\Views\productImgs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\productImgs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\productImgs\Index.cshtml" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
     <Content Include="Assets\css\breadcrumb.css.map" />
     <Content Include="Assets\css\style.css.map" />
     <Content Include="Assets\css\_about.css.map" />
     <Content Include="Assets\css\_client.css.map" />
     <Content Include="Assets\css\_feature.css.map" />
     <Content Include="Assets\css\_gallery.css.map" />
-    <Content Include="Assets\css\_product.css.map" />
     <Content Include="Assets\css\_team.css.map" />
     <Content Include="Assets\css\_timer.css.map" />
     <Content Include="Assets\css\_variables.css.map" />
@@ -1781,16 +1781,16 @@
     <Content Include="Assets\vendors\owl-carousel\.DS_Store" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Home\store.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
