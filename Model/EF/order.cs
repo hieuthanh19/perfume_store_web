@@ -14,8 +14,8 @@ namespace Model.EF
             orderItems = new HashSet<orderItem>();
         }
 
-        [Key]
-        [Required(ErrorMessage = "Please enter order id"), Display(Name = "Order  ID:")]
+        
+        [Key, Required(ErrorMessage = "Please enter order id"), Display(Name = "Order  ID:")]
         public int order_id { get; set; }
 
         [Required(ErrorMessage = "Please enter user id"), Display(Name = "User ID:")]

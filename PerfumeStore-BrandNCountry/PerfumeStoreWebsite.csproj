@@ -165,6 +165,7 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\deliveryMethodsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
+    <Compile Include="Areas\Admin\Controllers\orderItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ordersController.cs" />
     <Compile Include="Areas\Admin\Controllers\paymentMethodsController.cs" />
     <Compile Include="Areas\Admin\Controllers\productImgsController.cs" />
@@ -1700,6 +1701,11 @@
     <Content Include="Assets\img\elements\_DS_Store" />
     <Content Include="Assets\img\product\.DS_Store" />
     <Content Include="Assets\img\product\feature-product\.DS_Store" />
+    <Content Include="Areas\Admin\Views\orderItems\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\orderItems\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\orderItems\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\orderItems\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\orderItems\Index.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.min.js" />

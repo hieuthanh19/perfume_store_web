@@ -1,0 +1,71 @@
+﻿@model Model.EF.orderItem
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Edit</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <div class="row">
+
+        @Html.ActionLink("<< Back to List", "Index", null, new { @class = "col-md-2 mt-1" })
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.order_id)
+
+        @Html.HiddenFor(model => model.product_id)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.orderItem_quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.orderItem_quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.orderItem_quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.product_price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.product_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.product_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2"></div>
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+
+
+
