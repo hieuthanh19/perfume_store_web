@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DBAEA275-ED0B-4D7B-BABB-1DF1F16DB9AD}</ProjectGuid>
+    <ProjectGuid>{D7FC5C08-A919-464B-A9EB-FC2BCB23E46B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -178,16 +178,18 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="DAO\BrandDAO.cs" />
+    <Compile Include="DAO\CountryDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ProductNProductImgDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DAO\ValidateImageAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Perfume_Store.mdf" />
-    <Content Include="App_Data\Perfume_Store_log.ldf">
-      <DependentUpon>Perfume_Store.mdf</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\app-assets\css\bootstrap-extended.css" />
     <Content Include="Areas\Admin\app-assets\css\bootstrap-extended.min.css" />
     <Content Include="Areas\Admin\app-assets\css\bootstrap.css" />
@@ -1706,6 +1708,7 @@
     <Content Include="Areas\Admin\Views\orderItems\Details.cshtml" />
     <Content Include="Areas\Admin\Views\orderItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\orderItems\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\register\Index.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.min.js" />
@@ -1784,6 +1787,7 @@
     <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -5,20 +5,41 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>user</h4>
+<!--Upper tittle-->
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">User Details</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Show detail-->
+<div class="content-body">
+    <div class="row">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.user_id }, new { @class = "btn btn-primary col-md-1" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "col-md-2 mt-1" })
+    </div>
+    <hr />
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.user_role.role_name)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_role.role_name)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_username)
         </dt>
@@ -26,11 +47,9 @@
         <dd>
             @Html.DisplayFor(model => model.user_username)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_password)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_password)
         </dd>
@@ -38,7 +57,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.user_fullName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_fullName)
         </dd>
@@ -46,11 +64,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.user_address)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_address)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_phone)
         </dt>
@@ -58,7 +74,6 @@
         <dd>
             @Html.DisplayFor(model => model.user_phone)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_email)
         </dt>
@@ -66,11 +81,9 @@
         <dd>
             @Html.DisplayFor(model => model.user_email)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_avartar)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_avartar)
         </dd>
@@ -78,22 +91,15 @@
         <dt>
             @Html.DisplayNameFor(model => model.user_createdAt)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_createdAt)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.user_status)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.user_status)
         </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.user_id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
