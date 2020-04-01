@@ -197,6 +197,7 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1727,6 +1728,7 @@
     <Content Include="Areas\Admin\Views\orderItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\orderItems\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.min.js" />
@@ -1803,6 +1805,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Search\searchPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

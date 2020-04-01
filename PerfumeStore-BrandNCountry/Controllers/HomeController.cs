@@ -1,4 +1,5 @@
-﻿using Model.EF;
+﻿using Model.DAO;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -35,6 +36,15 @@ namespace PerfumeStore_BrandNCountry.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var product = new ProductDAO().GetProduct(id);
+            ViewBag.imgPath = imgDir;
+            ViewBag.Message = "Your detail page.";
+            ViewBag.id = id;
+            return View(product);
         }
     }
 }
