@@ -14,12 +14,13 @@ namespace Model.EF
             users = new HashSet<user>();
         }
 
-        [Key]
+        [Key, Display(Name = "Role ID")]
         public int role_id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50), Display(Name = "Role Name")]
         public string role_name { get; set; }
 
+        [Display(Name = "Role Status")]
         public int? role_status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

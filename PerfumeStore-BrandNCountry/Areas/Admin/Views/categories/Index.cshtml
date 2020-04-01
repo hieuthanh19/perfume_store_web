@@ -1,40 +1,85 @@
 ﻿@model IEnumerable<Model.EF.category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Category Management";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<!--Count number-->
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Category Management (@Model.Count())</h2>
+                <div class="breadcrumb-wrapper col-12">
+                    @*<ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Brands
+                            </li>
+                        </ol>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end count-->
+<div class="content-body">
+    <!-- Data list view starts -->
+    <section id="data-thumb-view" class="data-thumb-view-header">
+        <div class="action-btns d-none">
+            <div class="btn-dropdown mr-1 mb-1">
+                <div class="btn-group dropdown actions-dropodown">
+                </div>
+            </div>
+        </div>
+        <!-- dataTable starts -->
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <!--table column name-->
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.category_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.category_status)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <!--table body-->
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.category_name)
+                            </td>
+                            <td>
+                                @(item.category_status == 1 ? "" : "")
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.category_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.category_status)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.category_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category_status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.category_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.category_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.category_id })
-        </td>
-    </tr>
-}
-
-</table>
+                                @if (item.category_status == 1)
+                                {
+                                    <i class='ficon feather icon-check-circle'></i>
+                                }
+                                else
+                                {
+                                    <i class='ficon feather icon-x-circle'></i>
+                                }
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.category_id }, new { @class = "text-success" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.category_id }, new { @class = "text-info" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.category_id }, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- dataTable ends -->
+    </section>
+    <!-- Data list view end -->
+</div>
