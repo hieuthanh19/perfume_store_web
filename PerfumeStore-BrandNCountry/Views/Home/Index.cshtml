@@ -33,7 +33,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
-                <a class="hot_deal_link" href="category.jsp?brandId=1">
+                <a class="hot_deal_link" href="@Url.Action("Index", "Store", new { brandId = 1 })">
                     <div class="hot_deal_box">
                         <img class="img-fluid" src="~/Assets/img/product/hot_deals/chanel-deal.jpg" alt="Hot Deal">
                         <div class="content">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="col-lg-6">
-                <a class="hot_deal_link" href="category.jsp?brandId=4">
+                <a class="hot_deal_link" href="@Url.Action("Index", "Store", new { brandId = 4 })">
                     <div class="hot_deal_box">
                         <img class="img-fluid" src="~/Assets/img/product/hot_deals/versace-deal.jpg" alt="Hot Deal">
                         <div class="content">
@@ -109,7 +109,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                            <a href="@Url.Action("Index", "Detail", new { id = item.product_id})">
                                 <h4>@item.product_name</h4>
                             </a>
 
@@ -120,7 +120,7 @@
                 }
             </div>
             <div class="row">
-                <a class="green_btn mx-auto" href="category.jsp">See more</a>
+                <a class="green_btn mx-auto" href="@Url.Action("Index", "Store")">See more</a>
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div class="row">
-                @*Get 10 product sorted by order ID with acitve status *@
+                @*Get 10 product sorted by product ID with acitve status *@
 
                 @foreach (var item in featureProductList)
                 {
@@ -165,7 +165,7 @@
                 }
             </div>
             <div class="row">
-                <a class="green_btn mx-auto" href="category.jsp">See more</a>
+                <a class="green_btn mx-auto" href="@Url.Action("Index", "Store")">See more</a>
             </div>
         </div>
     </div>
@@ -210,7 +210,7 @@
             </div>
 
             <div class="row">
-                <a class="green_btn mx-auto" href="category.jsp?categoryId=1">See more</a>
+                <a class="green_btn mx-auto" href="@Url.Action("Index", "Store", new { categoryId = 1})">See more</a>
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@
                 }
             </div>
             <div class="row">
-                <a class="green_btn mx-auto" href="category.jsp?categoryId=2">See more</a>
+                <a class="green_btn mx-auto" href="@Url.Action("Index", "Store", new { categoryId = 2})">See more</a>
             </div>
         </div>
     </div>

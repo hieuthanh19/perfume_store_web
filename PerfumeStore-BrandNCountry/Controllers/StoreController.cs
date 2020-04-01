@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using Model.DAO;
 
 namespace PerfumeStore_BrandNCountry.Controllers
 {
@@ -14,11 +15,14 @@ namespace PerfumeStore_BrandNCountry.Controllers
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
         private string imgDir = "/Assets/img/product/single-product";
         // GET: Store
-        public ActionResult Index()
+        public ActionResult Index(int? pageNum, string search, int? sort, int? categoryId, int? brandId, int? volumeStart, int? volumeEnd, int? productsPerPage)
         {
-            var products = db.products.Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
+            StoreDAO storeDAO = new StoreDAO(pageNum, search, sort, categoryId, brandId, volumeStart, volumeEnd, productsPerPage);
+            ViewBag.brands = db.brands.Where(b => b.brand_status == 1);
+            ViewBag.categories = db.categories.Where(c => c.category_status == 1);           
             ViewBag.imgPath = imgDir;
-            return View(products.ToList());
+            ViewBag.storeDAO = storeDAO;
+            return View(storeDAO.sortedProductList);
         }
 
         /// <summary>

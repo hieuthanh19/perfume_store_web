@@ -42,7 +42,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.jsp">
+                <a class="navbar-brand logo_h" href="@Url.Action("Index", "Home", null)">
                     <img src="~/Assets/img/logo.png" alt="brand logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -56,11 +56,11 @@
                     <div class="row w-100">
                         <div class="col-lg-7 pr-0">
                             <ul class="nav navbar-nav center_nav pull-right">
-                                <li class="nav-item active">
-                                   @Html.ActionLink("Home","Index",null, new { @class = "nav-link"})
+                                <li class="nav-item">
+                                   @Html.ActionLink("Home","Index","Home",null , new { @class = "nav-link"})
                                 </li>
                                 <li class="nav-item ">
-                                    @Html.ActionLink("Store", "Store", new { categoryId = 1}, new { @class = "nav-link" })
+                                    @Html.ActionLink("Store","Index", "Store", null, new { @class = "nav-link" })
                                 </li>
                                 <!--                                <li class="nav-item ">
                                                                     <a class="nav-link" href="category.jsp?categoryId=2">Men's Fragrance</a>
@@ -84,7 +84,7 @@
                                   </li>                                            -->
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.jsp">Contact</a>
+                                    @Html.ActionLink("Contact", "Index", "Contact", null, new { @class = "nav-link" })
                                 </li>
                             </ul>
                         </div>

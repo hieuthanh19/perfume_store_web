@@ -2916,6 +2916,9 @@ h6 {
   .f_p_item .f_p_img {
     position: relative;
     overflow: hidden; }
+    .f_p_item .f_p_img .img-fluid {
+      width: 215px;
+      height: 215px; }
     .f_p_item .f_p_img .p_icon {
       position: absolute;
       right: -90px;
@@ -3219,11 +3222,33 @@ h6 {
     color: #222222;
     font-weight: normal;
     font-family: "Roboto", sans-serif; }
+  .cat_page .pagination li span {
+    height: 40px;
+    width: 40px;
+    border-radius: 0px;
+    background: #fff;
+    padding: 0px;
+    text-align: center;
+    line-height: 38px;
+    border-color: #eeeeee;
+    border-radius: 0px !important;
+    font-size: 14px;
+    color: #222222;
+    font-weight: normal;
+    font-family: "Roboto", sans-serif; }
   .cat_page .pagination li.blank a {
     background: transparent;
     color: #cccccc;
     border: none; }
+  .cat_page .pagination li.blank span {
+    background: transparent;
+    color: #cccccc;
+    border: none; }
   .cat_page .pagination li:hover a, .cat_page .pagination li.active a {
+    background: #017f42;
+    color: #fff;
+    border-color: #017f42; }
+  .cat_page .pagination li:hover span, .cat_page .pagination li.active span {
     background: #017f42;
     color: #fff;
     border-color: #017f42; }

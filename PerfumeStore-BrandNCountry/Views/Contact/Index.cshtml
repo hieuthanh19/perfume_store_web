@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>Contact Us</h2>
+                <div class="page_link">
+                    <a href="@Url.Action("Index", "Home", null)">Home</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Contact Area =================-->
+<section class="contact_area p_120">
+    <div class="container">
+                        @*<div id="mapBox" class="mapBox" data-lat="10.0134708" data-lon="105.731497" data-zoom="17" data-info="FPTU"
+                             data-mlat="10.0134708" data-mlon="105.731497">
+                        </div>*@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>
+                            <a href="https://www.google.com/maps/place/%C4%90%E1%BA%A1i+H%E1%BB%8Dc+Fpt+C%E1%BA%A7n+Th%C6%A1/@("@10.0290131,105.7499822,19.08z/data=!4m5!3m4!1s0x31a088447e3665c1:0x284416539d0f64ba!8m2!3d10.0286845!4d105.7497459")" target="_blank">
+                                FPT University, Cantho, Vietnam
+                            </a>
+                        </h6>
+                        <p>Our main office</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6>
+                            <a href="tel:0808150808">0808150808</a>
+                        </h6>
+                        <p>Mon to Fri 8 am to 6 pm</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-envelope"></i>
+                        <h6>
+                            <a href="mailto:perfume_store@atm.com">contact@atm.com</a>
+                        </h6>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->

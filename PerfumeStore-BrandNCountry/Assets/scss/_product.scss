@@ -5,27 +5,33 @@
     .hot_deal_box {
         position: relative;
         background: #000000;
-        cursor: pointer;       
+        cursor: pointer;
         @include transition;
+
         &:hover {
             background: $baseColor;
+
             img {
                 opacity: .2;
             }
         }
+
         @media (max-width: 992px) {
             margin-bottom: 20px;
         }
+
         .hot_deal_box1 {
-           
-           // background: url(../img/product/hot_deals/deal1.jpg);
+            // background: url(../img/product/hot_deals/deal1.jpg);
         }
-        .hot_deal_box2 {           
+
+        .hot_deal_box2 {
             //background: url(../img/product/hot_deals/deal1.jpg);
         }
+
         img {
             opacity: .5;
         }
+
         .content {
             position: absolute;
             top: 50%;
@@ -34,10 +40,12 @@
             color: #ffffff;
             text-align: center;
             z-index: 999;
+
             p {
                 text-transform: uppercase;
             }
         }
+
         .hot_deal_link {
             position: absolute;
             top: 0;
@@ -57,6 +65,7 @@
         position: relative;
         z-index: 10;
     }
+
     .cat_page {
         .pagination {
             li {
@@ -75,6 +84,11 @@
     .f_p_img {
         position: relative;
         overflow: hidden;
+
+        .img-fluid {
+            width: 215px;
+            height: 215px;
+        }
 
         .p_icon {
             position: absolute;
@@ -123,7 +137,6 @@
         /*border-radius: 8px;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/
-
         .f_p_img {
             .p_icon {
                 right: 35px;
@@ -174,18 +187,22 @@
 .most_p_list {
     .media {
         margin-bottom: 30px;
+
         .d-flex {
             padding-right: 20px;
         }
+
         .media-body {
             vertical-align: middle;
             align-self: center;
+
             h4 {
                 margin-bottom: 8px;
                 font-size: 14px;
                 font-weight: normal;
                 color: $dip;
             }
+
             h3 {
                 font-size: 16px;
                 font-weight: 500;
@@ -206,18 +223,21 @@
     .latest_product_inner {
         padding-top: 30px;
         margin-bottom: -50px;
+
         .f_p_item {
             margin-bottom: 50px;
         }
     }
 }
 
-.left_sidebar_area {}
+.left_sidebar_area {
+}
 
 .left_widgets {
     margin-bottom: 30px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 10px 10px 0px rgba(153, 153, 153, 0.1);
+
     &:last-child {
         margin-bottom: 0px;
     }
@@ -233,6 +253,7 @@
 .l_w_title {
     background: #f9f9ff;
     padding-left: 30px;
+
     h3 {
         margin-bottom: 0px;
         font-size: 14px;
@@ -247,11 +268,13 @@
     .list {
         li {
             margin-bottom: 13px;
+
             a {
                 font-size: 14px;
                 font-family: $rob;
                 color: $dip;
             }
+
             .list {
                 margin-top: 10px;
                 padding-left: 35px;
@@ -266,10 +289,12 @@
 .p_filter_widgets {
     .widgets_inner {
         border-bottom: 1px solid #eeeeee;
+
         &:last-child {
             border-bottom: 0px;
         }
     }
+
     h4 {
         color: $dip;
         font-size: 14px;
@@ -278,9 +303,11 @@
         margin-bottom: 22px;
         margin-top: 10px;
     }
+
     .list {
         li {
             margin-bottom: 18px;
+
             a {
                 padding-left: 30px;
                 font-size: 14px;
@@ -288,6 +315,7 @@
                 font-weight: normal;
                 color: $pfont;
                 position: relative;
+
                 &:before {
                     content: "";
                     height: 10px;
@@ -299,6 +327,7 @@
                     top: 5px;
                     @include transition;
                 }
+
                 &:after {
                     content: "";
                     height: 4px;
@@ -311,6 +340,7 @@
                     @include transition;
                 }
             }
+
             &.active,
             &:hover {
                 a {
@@ -320,19 +350,23 @@
                     }
                 }
             }
+
             &:last-child {
                 margin-bottom: 0px;
             }
         }
     }
+
     .range_item {
         .ui-slider {
             height: 6px;
             border: none;
             background: #f9f9ff;
+
             .ui-slider-range {
                 background: #f9f9ff;
             }
+
             .ui-slider-handle {
                 height: 16px;
                 width: 16px;
@@ -345,6 +379,7 @@
                 cursor: pointer;
             }
         }
+
         label {
             display: inline-block;
             font-size: 14px;
@@ -353,6 +388,7 @@
             font-family: $rob;
             margin-top: 15px;
         }
+
         input {
             display: inline-block;
             border: none;
@@ -362,6 +398,7 @@
             font-family: $rob;
             margin-top: 9px;
             padding-left: 3px;
+
             @include placeholder {
                 font-size: 14px;
                 color: $pfont;
@@ -376,6 +413,7 @@
     clear: both;
     display: flex;
     padding: 10px 20px;
+
     .left_dorp {
         .sorting {
             display: inline-block;
@@ -385,20 +423,24 @@
             height: 40px;
             width: 210px;
             padding-left: 20px;
+
             span {
                 font-size: 14px;
                 font-family: $rob;
                 color: #555555;
             }
+
             .list {
                 width: 100%;
                 border-radius: 0px;
+
                 li {
                     font-size: 14px;
                     font-family: $rob;
                     color: #555555;
                 }
             }
+
             &:after {
                 content: "\f0d7";
                 font: normal normal normal 14px/1 FontAwesome;
@@ -409,6 +451,7 @@
                 right: 20px;
             }
         }
+
         .show {
             clear: none;
             display: inline-block;
@@ -419,20 +462,24 @@
             width: 120px;
             padding-left: 20px;
             margin-left: 10px;
+
             span {
                 font-size: 14px;
                 font-family: $rob;
                 color: #555555;
             }
+
             .list {
                 width: 100%;
                 border-radius: 0px;
+
                 li {
                     font-size: 14px;
                     font-family: $rob;
                     color: #555555;
                 }
             }
+
             &:after {
                 content: "\f0d7";
                 font: normal normal normal 14px/1 FontAwesome;
@@ -450,6 +497,7 @@
     .pagination {
         margin-bottom: 0px;
         border-radius: 0px;
+
         li {
             a {
                 height: 40px;
@@ -466,16 +514,46 @@
                 font-weight: normal;
                 font-family: $rob;
             }
+
+            span {
+                height: 40px;
+                width: 40px;
+                border-radius: 0px;
+                background: #fff;
+                padding: 0px;
+                text-align: center;
+                line-height: 38px;
+                border-color: #eeeeee;
+                border-radius: 0px !important;
+                font-size: 14px;
+                color: $dip;
+                font-weight: normal;
+                font-family: $rob;
+            }
+
             &.blank {
                 a {
                     background: transparent;
                     color: #cccccc;
                     border: none;
                 }
+
+                span {
+                    background: transparent;
+                    color: #cccccc;
+                    border: none;
+                }
             }
+
             &:hover,
-                &.active {
+            &.active {
                 a {
+                    background: $baseColor;
+                    color: #fff;
+                    border-color: $baseColor;
+                }
+
+                span {
                     background: $baseColor;
                     color: #fff;
                     border-color: $baseColor;
@@ -499,17 +577,20 @@
     padding-top: 120px;
 }
 
-.s_product_inner {}
+.s_product_inner {
+}
 
 .s_product_img {
     .carousel {
         position: relative;
+
         .carousel-indicators {
             margin: 0px;
             right: 20px;
             width: auto;
             left: auto;
             bottom: 30px;
+
             li {
                 height: 60px;
                 width: 60px;
@@ -517,9 +598,11 @@
                 text-indent: 0;
                 margin-right: 10px;
                 position: relative;
+
                 &:after {
                     display: none;
                 }
+
                 &:before {
                     content: "";
                     background: rgba(197, 50, 45, .80);
@@ -530,6 +613,7 @@
                     height: 100%;
                     opacity: 0;
                 }
+
                 &.active {
                     &:before {
                         opacity: 1;
@@ -543,51 +627,62 @@
 .s_product_text {
     margin-left: -15px;
     margin-top: 65px;
+
     h3 {
         font-size: 24px;
         font-weight: 500;
         color: $dip;
         margin-bottom: 10px;
     }
+
     h2 {
         font-size: 24px;
         font-weight: bold;
         color: $baseColor;
         margin-bottom: 15px;
     }
+
     .list {
         li {
             margin-bottom: 5px;
+
             a {
                 font-size: 14px;
                 font-family: $rob;
                 font-weight: normal;
                 color: #555555;
+
                 span {
                     width: 90px;
                     display: inline-block;
+
                     &:hover {
                         color: #555;
                     }
                 }
+
                 &.active {
                     color: $baseColor;
+
                     span {
                         color: #555;
                     }
                 }
             }
+
             &:last-child {
                 margin-bottom: 0px;
             }
         }
     }
+
     p {
         padding-top: 20px;
         border-top: 1px dotted #d5d5d5;
         margin-top: 20px;
         margin-bottom: 70px;
     }
+
     .card_area {
         .main_btn {
             line-height: 38px;
@@ -595,6 +690,7 @@
             text-transform: uppercase;
             margin-right: 10px;
         }
+
         .icon_btn {
             margin-right: 10px;
             background: #f9f9ff;
@@ -605,6 +701,7 @@
             text-align: center;
             padding: 0px 13px;
             font-size: 14px;
+
             &:hover {
                 background: #fff;
                 box-shadow: -14.142px 14.142px 20px 0px rgba(0, 0, 0, 0.1);
@@ -617,6 +714,7 @@
     display: inline-block;
     position: relative;
     margin-bottom: 24px;
+
     label {
         font-size: 14px;
         color: $pfont;
@@ -624,12 +722,14 @@
         font-weight: normal;
         padding-right: 10px;
     }
+
     input {
         width: 76px;
         border: 1px solid #eeeeee;
         border-radius: 3px;
         padding-left: 10px;
     }
+
     button {
         display: block;
         border: none;
@@ -641,13 +741,16 @@
         font-size: 14px;
         color: #cccccc;
         @include transition;
+
         &:hover {
             color: $dip;
         }
     }
+
     .increase {
         top: -4px;
     }
+
     .reduced {
         bottom: -1px;
     }
@@ -656,18 +759,22 @@
 .product_description_area {
     padding-bottom: 120px;
     margin-top: 60px;
+
     .nav.nav-tabs {
         background: #f9f9ff;
         text-align: center;
         display: block;
         border: none;
         padding: 10px 0px;
+
         li {
             display: inline-block;
             margin-right: 7px;
+
             &:last-child {
                 margin-right: 0px;
             }
+
             a {
                 padding: 0px;
                 border: none;
@@ -679,6 +786,7 @@
                 color: $dip;
                 font-size: 13px;
                 font-weight: normal;
+
                 &.active {
                     background: $baseColor;
                     color: #fff;
@@ -687,27 +795,32 @@
             }
         }
     }
+
     .tab-content {
         border-left: 1px solid #eee;
         border-right: 1px solid #eee;
         border-bottom: 1px solid #eee;
         padding: 30px;
+
         .total_rate {
             .box_total {
                 background: #f9f9ff;
                 text-align: center;
                 padding-top: 20px;
                 padding-bottom: 20px;
+
                 h4 {
                     color: $baseColor;
                     font-size: 48px;
                     font-weight: bold;
                 }
+
                 h5 {
                     color: $dip;
                     margin-bottom: 0px;
                     font-size: 24px;
                 }
+
                 h6 {
                     color: $dip;
                     margin-bottom: 0px;
@@ -716,8 +829,10 @@
                     font-weight: normal;
                 }
             }
+
             .rating_list {
                 margin-bottom: 30px;
+
                 h3 {
                     font-size: 18px;
                     color: $dip;
@@ -725,15 +840,18 @@
                     font-weight: 500;
                     margin-bottom: 10px;
                 }
+
                 .list {
                     li {
                         a {
                             font-size: 14px;
                             color: $pfont;
+
                             i {
                                 color: #fbd600;
                             }
                         }
+
                         &:nth-child {
                             a {
                                 i {
@@ -747,8 +865,10 @@
                 }
             }
         }
+
         .table {
             margin-bottom: 0px;
+
             tbody {
                 tr {
                     td {
@@ -756,6 +876,7 @@
                         padding-right: 65px;
                         padding-top: 14px;
                         padding-bottom: 14px;
+
                         h5 {
                             font-size: 14px;
                             font-family: $rob;
@@ -765,6 +886,7 @@
                             white-space: nowrap;
                         }
                     }
+
                     &:first-child {
                         td {
                             border-top: 0px;
@@ -776,21 +898,27 @@
     }
 }
 
-.review_list {}
+.review_list {
+}
 
 .review_item {
     margin-bottom: 15px;
+
     &:last-child {
         margin-bottom: 0px;
     }
+
     .media {
         position: relative;
+
         .d-flex {
             padding-right: 15px;
         }
+
         .media-body {
             vertical-align: middle;
             align-self: center;
+
             h4 {
                 margin-bottom: 0px;
                 font-size: 14px;
@@ -798,14 +926,17 @@
                 font-family: $rob;
                 margin-bottom: 8px;
             }
+
             i {
                 color: #fbd600;
             }
+
             h5 {
                 font-size: 13px;
                 font-weight: normal;
                 color: $pfont;
             }
+
             .reply_btn {
                 border: 1px solid #e0e0e0;
                 padding: 0px 28px;
@@ -826,10 +957,12 @@
             }
         }
     }
+
     p {
         padding-top: 10px;
         margin-bottom: 0px;
     }
+
     &.reply {
         padding-left: 28px;
     }
@@ -841,29 +974,35 @@
         color: $dip;
         margin-bottom: 20px;
     }
+
     p {
         margin-bottom: 0px;
         display: inline-block;
     }
+
     .list {
         display: inline-block;
         padding-left: 10px;
         padding-right: 10px;
+
         li {
             display: inline-block;
+
             a {
                 display: inline-block;
                 color: #fbd600;
             }
         }
     }
+
     .contact_form {
         margin-top: 15px;
     }
 }
 
 .comment_list {
-    .review_item {}
+    .review_item {
+    }
 }
 
 /* End Single Product Area css
@@ -891,6 +1030,7 @@
                 }
             }
         }
+
         tbody {
             tr {
                 td {
@@ -898,30 +1038,37 @@
                     padding-bottom: 30px;
                     vertical-align: middle;
                     align-self: center;
+
                     .media {
                         .d-flex {
                             padding-right: 30px;
+
                             img {
                                 border: 1px solid #eeeeee;
                                 border-radius: 3px;
                             }
                         }
+
                         .media-body {
                             vertical-align: middle;
                             align-self: center;
+
                             p {
                                 margin-bottom: 0px;
                             }
                         }
                     }
+
                     h5 {
                         font-size: 14px;
                         color: $dip;
                         font-family: $rob;
                         margin-bottom: 0px;
                     }
+
                     .product_count {
                         margin-bottom: 0px;
+
                         input {
                             width: 100px;
                             padding-left: 30px;
@@ -929,8 +1076,10 @@
                             outline: none;
                             box-shadow: none;
                         }
+
                         .increase {
                             top: -2px;
+
                             &:before {
                                 content: "";
                                 height: 40px;
@@ -940,6 +1089,7 @@
                                 top: 0px;
                                 background: #eeeeee;
                             }
+
                             &:after {
                                 content: "";
                                 height: 1px;
@@ -950,11 +1100,13 @@
                                 background: #eeeeee;
                             }
                         }
+
                         .reduced {
                             bottom: -6px;
                         }
                     }
                 }
+
                 &.bottom_button {
                     .gray_btn {
                         line-height: 38px;
@@ -967,12 +1119,15 @@
                         text-transform: uppercase;
                         font-weight: 500;
                     }
+
                     td {
                         &:last-child {
                             width: 60px;
                         }
+
                         .cupon_text {
                             margin-left: -446px;
+
                             input {
                                 width: 200px;
                                 padding: 0px 15px;
@@ -986,6 +1141,7 @@
                                 margin-right: -3px;
                                 outline: none;
                                 box-shadow: none;
+
                                 @include placeholder {
                                     font-size: 14px;
                                     color: #cccccc;
@@ -993,6 +1149,7 @@
                                     font-weight: normal;
                                 }
                             }
+
                             .main_btn {
                                 height: 40px;
                                 line-height: 38px;
@@ -1000,32 +1157,39 @@
                                 padding: 0px 38px;
                                 margin-right: -3px;
                             }
+
                             .gray_btn {
                                 padding: 0px 40px;
                             }
                         }
                     }
                 }
+
                 &.shipping_area {
                     td {
                         &:nth-child(3) {
                             vertical-align: top;
                         }
                     }
+
                     .shipping_box {
                         margin-left: -250px;
                         text-align: right;
+
                         .list {
                             li {
                                 margin-bottom: 12px;
+
                                 &:last-child {
                                     margin-bottom: 0px;
                                 }
+
                                 a {
                                     padding-right: 30px;
                                     font-size: 14px;
                                     color: $pfont;
                                     position: relative;
+
                                     &:before {
                                         content: "";
                                         height: 16px;
@@ -1038,6 +1202,7 @@
                                         top: 50%;
                                         transform: translateY(-50%);
                                     }
+
                                     &:after {
                                         content: "";
                                         height: 10px;
@@ -1052,6 +1217,7 @@
                                         opacity: 0;
                                     }
                                 }
+
                                 &.active {
                                     a {
                                         &:after {
@@ -1061,6 +1227,7 @@
                                 }
                             }
                         }
+
                         h6 {
                             font-size: 14px;
                             font-weight: normal;
@@ -1068,11 +1235,13 @@
                             font-family: $rob;
                             margin-top: 20px;
                             margin-bottom: 20px;
+
                             i {
                                 color: $pfont;
                                 padding-left: 5px;
                             }
                         }
+
                         .shipping_select {
                             display: block;
                             width: 100%;
@@ -1080,9 +1249,11 @@
                             border: 1px solid #eeeeee;
                             height: 40px;
                             margin-bottom: 20px;
+
                             .list {
                                 width: 100%;
                                 border-radius: 0px;
+
                                 li {
                                     font-size: 14px;
                                     font-weight: normal;
@@ -1090,6 +1261,7 @@
                                 }
                             }
                         }
+
                         input {
                             height: 40px;
                             outline: none;
@@ -1101,9 +1273,11 @@
                         }
                     }
                 }
+
                 &.out_button_area {
                     .checkout_btn_inner {
                         margin-left: -388px;
+
                         .main_btn {
                             height: 40px;
                             padding: 0px 30px;
@@ -1135,7 +1309,8 @@
 /* End Cart Area css
 ============================================================================================ */
 
-.checkout_area {}
+.checkout_area {
+}
 
 .check_title {
     h2 {
@@ -1146,6 +1321,7 @@
         line-height: 40px;
         padding-left: 30px;
         margin-bottom: 0px;
+
         a {
             color: $baseColor;
             text-decoration: underline;
@@ -1159,11 +1335,14 @@
         padding-left: 30px;
         margin-bottom: 25px;
     }
+
     .contact_form {
         max-width: 710px;
         margin-left: 15px;
+
         .form-group {
             margin-bottom: 20px;
+
             input {
                 border: 1px solid #eeeeee;
                 height: 40px;
@@ -1172,6 +1351,7 @@
                 font-family: $rob;
                 color: $pfont;
                 font-weight: normal;
+
                 @include placeholder {
                     font-size: 14px;
                     font-family: $rob;
@@ -1179,17 +1359,21 @@
                     font-weight: normal;
                 }
             }
+
             .submit_btn {
                 margin-top: 0px;
             }
+
             .creat_account {
                 display: inline-block;
                 margin-left: 15px;
+
                 input {
                     height: auto;
                     margin-right: 10px;
                 }
             }
+
             .lost_pass {
                 display: block;
                 margin-top: 20px;
@@ -1214,7 +1398,7 @@
 //.p_star input:valid + .placeholder {
 //    display: none;
 //}
-.p_star input:focus+.placeholder {
+.p_star input:focus + .placeholder {
     display: none;
 }
 
@@ -1238,6 +1422,7 @@
 
 .cupon_area {
     margin-bottom: 40px;
+
     input {
         margin-left: 30px;
         max-width: 730px;
@@ -1252,6 +1437,7 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
     .tp_btn {
         margin-left: 30px;
     }
@@ -1267,6 +1453,7 @@
     font-family: $rob;
     font-weight: 500;
     border-radius: 3px;
+
     &:hover {
         background: $baseColor;
         color: #fff;
@@ -1282,29 +1469,37 @@
         padding-bottom: 10px;
         margin-bottom: 30px;
     }
+
     .contact_form {
         .form-group {
             margin-bottom: 20px;
+
             input {
                 border-radius: 3px;
                 color: $pfont;
+
                 @include placeholder {
                     color: $pfont;
                 }
             }
+
             textarea {
                 height: 150px;
                 border-radius: 3px;
                 margin-top: 15px;
             }
+
             .country_select {
                 width: 100%;
+
                 span {
                     color: $pfont;
                 }
+
                 .list {
                     width: 100%;
                     border-radius: 0px;
+
                     li {
                         font-size: 14px;
                         font-family: $rob;
@@ -1312,13 +1507,16 @@
                     }
                 }
             }
+
             .creat_account {
                 #f-option2 {
                     margin-right: 5px;
                 }
+
                 #f-option3 {
                     margin-right: 5px;
                 }
+
                 a {
                     color: $baseColor;
                 }
@@ -1330,6 +1528,7 @@
 .order_box {
     background: #f9f9f9;
     padding: 30px;
+
     h2 {
         border-bottom: 1px solid #dddddd;
         font-size: 18px;
@@ -1337,6 +1536,7 @@
         color: $dip;
         padding-bottom: 15px;
     }
+
     .list {
         li {
             a {
@@ -1346,9 +1546,11 @@
                 border-bottom: 1px solid #eeeeee;
                 display: block;
                 line-height: 42px;
+
                 span {
                     float: right;
                 }
+
                 .middle {
                     float: none;
                     width: 50px;
@@ -1358,6 +1560,7 @@
                     color: $dip;
                 }
             }
+
             &:nth-child(4) {
                 a {
                     .middle {
@@ -1367,17 +1570,20 @@
             }
         }
     }
+
     .list_2 {
         li {
             a {
                 text-transform: uppercase;
                 color: $dip;
                 font-weight: 500;
+
                 span {
                     color: $pfont;
                     text-transform: capitalize;
                 }
             }
+
             &:last-child {
                 a {
                     span {
@@ -1387,6 +1593,7 @@
             }
         }
     }
+
     .payment_item {
         h4 {
             font-size: 14px;
@@ -1397,6 +1604,7 @@
             position: relative;
             margin-bottom: 15px;
             margin-top: 15px;
+
             &:before {
                 content: "";
                 width: 14px;
@@ -1410,6 +1618,7 @@
                 top: 50%;
                 transform: translateY(-50%);
             }
+
             &:after {
                 content: "";
                 height: 4px;
@@ -1421,14 +1630,17 @@
                 left: 5px;
                 top: 8px;
             }
+
             img {
                 padding-left: 60px;
             }
         }
+
         p {
             background: #fff;
             padding: 20px;
         }
+
         &.active {
             h4 {
                 &:before {
@@ -1438,17 +1650,21 @@
             }
         }
     }
+
     .creat_account {
         margin-bottom: 15px;
+
         label {
             padding-left: 10px;
             font-size: 12px;
             color: $dip;
         }
+
         a {
             color: $baseColor;
         }
     }
+
     .main_btn {
         display: block;
         line-height: 38px;
@@ -1474,17 +1690,22 @@
             color: $dip;
             padding-left: 18px;
         }
+
         .list {
             padding-left: 18px;
+
             li {
                 margin-bottom: 8px;
+
                 &:last-child {
                     margin-bottom: 0px;
                 }
+
                 a {
                     font-size: 14px;
                     color: $dip;
                     font-family: $rob;
+
                     span {
                         width: 145px;
                         display: inline-block;
@@ -1500,14 +1721,17 @@
     background: #f9f9ff;
     padding: 30px;
     margin-top: 75px;
+
     h2 {
         color: $dip;
         font-size: 18px;
         border-bottom: 1px solid #dddddd;
         padding-bottom: 15px;
     }
+
     .table {
         margin-bottom: 0px;
+
         thead {
             tr {
                 th {
@@ -1518,16 +1742,19 @@
                 }
             }
         }
+
         tbody {
             tr {
                 td {
                     p {
                         margin-bottom: 0px;
                     }
+
                     h5 {
                         color: $dip;
                         margin-bottom: 0px;
                     }
+
                     h4 {
                         font-size: 14px;
                         text-transform: uppercase;
@@ -1535,9 +1762,11 @@
                         color: $dip;
                     }
                 }
+
                 &:last-child {
                     td {
                         border-top: 1px solid #ddd;
+
                         p {
                             color: $dip;
                         }
@@ -1558,6 +1787,7 @@
     .login_box_img {
         margin-right: -30px;
         position: relative;
+
         .hover {
             position: absolute;
             top: 50%;
@@ -1565,16 +1795,19 @@
             text-align: center;
             width: 100%;
             transform: translateY(-50%);
+
             h4 {
                 font-size: 24px;
                 color: #fff;
                 margin-bottom: 15px;
             }
+
             p {
                 max-width: 380px;
                 margin: 0px auto 25px;
                 color: #fff;
             }
+
             .main_btn {
                 border-radius: 0px;
                 line-height: 38px;
@@ -1589,19 +1822,25 @@
     height: 100%;
     text-align: center;
     padding-top: 115px;
+
     h3 {
         color: $dip;
         text-transform: uppercase;
         font-size: 18px;
         margin-bottom: 80px;
     }
+
     .login_form {
         max-width: 385px;
         margin: auto;
-        .form-group {}
+
+        .form-group {
+        }
     }
+
     &.reg_form {
         padding-top: 60px;
+
         h3 {
             margin-bottom: 70px;
         }
@@ -1617,23 +1856,29 @@
             border-radius: 0px;
             outline: none;
             box-shadow: none;
-            @include placeholder {}
+
+            @include placeholder {
+            }
         }
+
         .creat_account {
             margin-top: 10px;
             margin-bottom: 15px;
             text-align: left;
+
             input {
                 height: auto;
                 margin-right: 10px;
             }
         }
+
         .submit_btn {
             display: block;
             border-radius: 0px;
             width: 100%;
             text-transform: uppercase;
         }
+
         a {
             font-size: 14px;
             color: $pfont;
@@ -1657,8 +1902,10 @@
             color: $dip;
             margin-bottom: 25px;
         }
+
         .tracking_form {
             max-width: 645px;
+
             .form-group {
                 input {
                     height: 40px;
@@ -1671,6 +1918,7 @@
                     color: $pfont;
                     font-family: $rob;
                     font-weight: normal;
+
                     @include placeholder {
                         font-size: 14px;
                         color: $pfont;
@@ -1678,9 +1926,11 @@
                         font-weight: normal;
                     }
                 }
+
                 &:last-child {
                     margin-bottom: 0px;
                 }
+
                 .submit_btn {
                     text-transform: uppercase;
                 }
@@ -1701,6 +1951,7 @@
     position: relative;
     margin-top: 10px;
     margin-bottom: 15px;
+
     img {
         position: absolute;
         right: 40px;
@@ -1755,15 +2006,15 @@
     -webkit-transition: background 0.25s linear;
 }
 
-.radion_btn input[type=radio]:checked~.check {
+.radion_btn input[type=radio]:checked ~ .check {
     border: 1px solid $baseColor;
     background: $baseColor;
 }
 
-.radion_btn input[type=radio]:checked~.check::before {
+.radion_btn input[type=radio]:checked ~ .check::before {
     background: #fff;
 }
 
-.radion_btn input[type=radio]:checked~label {
+.radion_btn input[type=radio]:checked ~ label {
     color: #000;
 }
