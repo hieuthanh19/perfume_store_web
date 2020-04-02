@@ -1,4 +1,6 @@
 ﻿using Model.EF;
+using PerfumeStore_BrandNCountry.Common;
+using PerfumeStore_BrandNCountry.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +14,9 @@ namespace PerfumeStore_BrandNCountry.Controllers
     public class HomeController : Controller
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
+       
         private string imgDir = "/Assets/img/product/single-product";
+        
 
         public ActionResult Index()
         {
@@ -25,9 +29,16 @@ namespace PerfumeStore_BrandNCountry.Controllers
         
       
         [ChildActionOnly]
-        public ActionResult CategoryList()
+        public PartialViewResult HeaderCart()
         {
-            return View(db.categories.ToList());
+            var cart = Session[CommonConstant.CartSession];
+            var list = new List<CartItem>();
+            //if session already has cart
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
         }
 
         public ActionResult Contact()

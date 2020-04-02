@@ -30,9 +30,7 @@
 
                    
                     <li>
-                        <a href="contact.jsp">
-                            Contact Us
-                        </a>
+                        @Html.ActionLink("Contact", "Index", "Contact")                       
                     </li>
                 </ul>
             </div>
@@ -100,9 +98,7 @@
 
                               
                                 <li class="nav-item">
-                                    <a href="cart.jsp" class="icons">
-                                        <i class="lnr lnr lnr-cart"></i>
-                                    </a>
+                                   @{ Html.RenderAction("HeaderCart", "Home");}
                                 </li>
                                 
                             </ul>

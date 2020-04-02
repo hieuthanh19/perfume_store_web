@@ -104,12 +104,12 @@
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
                                 </div>
                             </div>
-                            <a href="@Url.Action("Index", "Detail", new { id = item.product_id})">
+                            <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
                                 <h4>@item.product_name</h4>
                             </a>
 
@@ -149,12 +149,12 @@
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
                                 </div>
                             </div>
-                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                            <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
                                 <h4>@item.product_name</h4>
                             </a>
 
@@ -193,12 +193,12 @@
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
                                 </div>
                             </div>
-                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                            <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
                                 <h4>@item.product_name</h4>
                             </a>
 
@@ -238,12 +238,12 @@
                                     <a href="#">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
                                 </div>
                             </div>
-                            <a href="@Url.Action("store", "Home", new { id = item.product_id})">
+                            <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
                                 <h4>@item.product_name</h4>
                             </a>
 

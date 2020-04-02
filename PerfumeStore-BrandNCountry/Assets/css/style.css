@@ -3350,7 +3350,8 @@ h6 {
 .product_count {
   display: inline-block;
   position: relative;
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  margin-top: 40px; }
   .product_count label {
     font-size: 14px;
     color: #777777;
@@ -3553,7 +3554,9 @@ h6 {
     padding-right: 30px; }
     .cart_inner .table tbody tr td .media .d-flex img {
       border: 1px solid #eeeeee;
-      border-radius: 3px; }
+      border-radius: 3px;
+      width: 150px;
+      height: 150px; }
   .cart_inner .table tbody tr td .media .media-body {
     vertical-align: middle;
     align-self: center; }
@@ -3565,7 +3568,7 @@ h6 {
     font-family: "Roboto", sans-serif;
     margin-bottom: 0px; }
   .cart_inner .table tbody tr td .product_count {
-    margin-bottom: 0px; }
+    margin-bottom: 10px; }
     .cart_inner .table tbody tr td .product_count input {
       width: 100px;
       padding-left: 30px;
@@ -3592,6 +3595,8 @@ h6 {
         background: #eeeeee; }
     .cart_inner .table tbody tr td .product_count .reduced {
       bottom: -6px; }
+  .cart_inner .table tbody tr td .quantity-left {
+    margin-left: 10px; }
 .cart_inner .table tbody tr.bottom_button .gray_btn {
   line-height: 38px;
   background: #f9f9ff;
@@ -3605,8 +3610,9 @@ h6 {
 .cart_inner .table tbody tr.bottom_button td:last-child {
   width: 60px; }
 .cart_inner .table tbody tr.bottom_button td .cupon_text {
-  margin-left: -446px; }
+  margin-left: -325px; }
   .cart_inner .table tbody tr.bottom_button td .cupon_text input {
+    visibility: hidden;
     width: 200px;
     padding: 0px 15px;
     border-radius: 3px;
@@ -3644,7 +3650,10 @@ h6 {
     line-height: 38px;
     text-transform: uppercase;
     padding: 0px 38px;
-    margin-right: -3px; }
+    margin-right: -3px;
+    color: #fff; }
+    .cart_inner .table tbody tr.bottom_button td .cupon_text .main_btn:hover {
+      color: #017f42; }
   .cart_inner .table tbody tr.bottom_button td .cupon_text .gray_btn {
     padding: 0px 40px; }
 .cart_inner .table tbody tr.shipping_area td:nth-child(3) {
@@ -3719,7 +3728,7 @@ h6 {
     padding: 0px 15px;
     margin-bottom: 20px; }
 .cart_inner .table tbody tr.out_button_area .checkout_btn_inner {
-  margin-left: -388px; }
+  margin-left: -250px; }
   .cart_inner .table tbody tr.out_button_area .checkout_btn_inner .main_btn {
     height: 40px;
     padding: 0px 30px;
@@ -3736,6 +3745,8 @@ h6 {
   color: #222222;
   text-transform: uppercase;
   font-weight: 500; }
+  .gray_btn:hover {
+    color: #017f42; }
 
 /* End Cart Area css
 ============================================================================================ */

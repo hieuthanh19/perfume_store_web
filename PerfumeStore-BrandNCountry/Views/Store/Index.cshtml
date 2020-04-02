@@ -6,7 +6,7 @@
 
 @model IPagedList<Model.EF.product>
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title = "Store";
     Layout = "~/Views/Shared/_Layout.cshtml";
     StoreDAO store = ViewBag.storeDAO;
 }
@@ -16,10 +16,10 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="container">
             <div class="banner_content text-center">
-                <h2>Shop Category Page</h2>
+                <h2>Store</h2>
                 <div class="page_link">
                     <a href="@Url.Action("Index", "Home", null)">Home</a>
-                    <a href="#">Category</a>
+                    <a href="#">Store</a>
                 </div>
             </div>
         </div>
@@ -72,12 +72,12 @@
                                             <a href="#">
                                                 <i class="lnr lnr-heart"></i>
                                             </a>
-                                            <a href="#">
+                                            <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
                                                 <i class="lnr lnr-cart"></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <a href="@Url.Action("Index", "Detail", new { productId = item.product_id})">
+                                    <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
                                         <h4>@item.product_name</h4>
                                     </a>
                                     <h5>$ @item.product_currentPrice</h5>

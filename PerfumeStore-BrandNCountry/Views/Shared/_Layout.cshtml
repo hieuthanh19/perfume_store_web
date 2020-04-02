@@ -43,8 +43,11 @@
     @*<script src="~/Assets/vendors/flipclock/timer.js"></script>*@
     <script src="~/Assets/vendors/counter-up/jquery.counterup.js"></script>
     <script src="~/Assets/js/mail-script.js"></script>
-    <script src="~/Assets/js/theme.js"></script>
+    <script src="~/Assets/js/theme.js"></script>    
 
+    @RenderSection("jsFooter", false)
+
+    @*Set active status to nav bar*@
     <script>
         $(document).ready(function () {
             var currentURL = window.location.href.toLowerCase();

@@ -190,6 +190,7 @@
 
         .d-flex {
             padding-right: 20px;
+            
         }
 
         .media-body {
@@ -714,6 +715,7 @@
     display: inline-block;
     position: relative;
     margin-bottom: 24px;
+    margin-top: 40px;
 
     label {
         font-size: 14px;
@@ -1046,6 +1048,8 @@
                             img {
                                 border: 1px solid #eeeeee;
                                 border-radius: 3px;
+                                width: 150px;
+                                height: 150px;
                             }
                         }
 
@@ -1067,7 +1071,7 @@
                     }
 
                     .product_count {
-                        margin-bottom: 0px;
+                        margin-bottom: 10px;
 
                         input {
                             width: 100px;
@@ -1105,6 +1109,9 @@
                             bottom: -6px;
                         }
                     }
+                    .quantity-left{
+                        margin-left: 10px;
+                    }
                 }
 
                 &.bottom_button {
@@ -1126,9 +1133,10 @@
                         }
 
                         .cupon_text {
-                            margin-left: -446px;
+                            margin-left: -325px;
 
                             input {
+                                visibility: hidden;
                                 width: 200px;
                                 padding: 0px 15px;
                                 border-radius: 3px;
@@ -1156,6 +1164,11 @@
                                 text-transform: uppercase;
                                 padding: 0px 38px;
                                 margin-right: -3px;
+                                color: #fff;
+
+                                &:hover{
+                                    color: $baseColor;
+                                }
                             }
 
                             .gray_btn {
@@ -1276,7 +1289,7 @@
 
                 &.out_button_area {
                     .checkout_btn_inner {
-                        margin-left: -388px;
+                        margin-left: -250px;
 
                         .main_btn {
                             height: 40px;
@@ -1301,6 +1314,9 @@
     color: $dip;
     text-transform: uppercase;
     font-weight: 500;
+    &:hover{
+        color: $baseColor;
+    }
 }
 
 /* End Cart Area css
