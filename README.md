@@ -1,6 +1,11 @@
 # Perfume Store Web
+
+### Links
 Link project https://1drv.ms/u/s!AiFVLPRBePKonP8q_i0SBObHvH_5uA?e=1boc5H \
-Mn tải file Perfume_Store.mdf trong folder Model về (nếu chưa có) -> mở sql server management studio -> chọn sql express instance -> Database -> chuột phải -> attach -> Add -> chọn file .mdf đã tải 
+Link Doc https://1drv.ms/u/s!AiFVLPRBePKonctK8_2oKCDPP-Pstg?e=ibbfEP 
+
+### Cài DB
+Mn vô project bằng link ở trên -> tải Perfume_Store.mdf trong folder Model về (nếu chưa có) -> mở sql server management studio -> chọn sql express instance -> Database -> chuột phải -> attach -> Add -> chọn file .mdf đã tải 
 ### Video hướng dẫn ASP.NET
 Đây là playlist dạy ASP mà t thấy ổn nhất vì dạy đủ từ a-z: https://youtu.be/7kJMX8aMesA
 ## Lịch trình dự kiến:
