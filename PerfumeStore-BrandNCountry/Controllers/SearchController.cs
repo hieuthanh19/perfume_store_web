@@ -13,8 +13,14 @@ namespace PerfumeStore_BrandNCountry.Controllers
         private string imgDir = "/Assets/img/product/single-product";
 
         // GET: Search
-        public ActionResult searchPage(string searchString = "___")
+        public ActionResult searchPage(string searchString = "a_x__")
         {
+            int i = 0;
+            if(searchString.Equals("a_x__"))
+            {
+                i++;
+            }
+            ViewBag.i = i;
             var pr = from p in db.products select p;
             pr = db.products.Where(p => p.product_name.Contains(searchString));
             ViewBag.imgPath = imgDir;
