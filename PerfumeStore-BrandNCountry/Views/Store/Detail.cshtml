@@ -30,12 +30,12 @@
                     <h2>@Model.product_currentPrice USD</h2>
                     <ul class="list">
                         <li>
-                            <a class="active" href="#">
-                                <span>Brand name</span> : @Model.brand.brand_name
+                            <a class="active" href="@Url.Action("Index", "Store", new { brandId = Model.brand_id})">
+                                <span>Brand</span> : @Model.brand.brand_name
                             </a>
                         </li>
                         <li>
-                            <a class="active" href="#">
+                            <a class="active" href="@Url.Action("Index", "Store", new { categoryId = Model.category_id})">
                                 <span>Category</span> : @Model.category.category_name
                             </a>
                         </li>
@@ -45,18 +45,20 @@
                             </a>
                         </li>
                         <li>
-                            <a class="">
-                                <span>Availability</span>  : @if (Model.product_status == 1)
+                            @*<a class="active">
+                                            <span>Quantity</span>  : if (model.product_status == 1)
                                 {<span style="color: green" class="glyphicon glyphicon-ok"></span>}
                                 else
                                 {<span style="color: red" class="glyphicon glyphicon-remove"></span>}
-                            </a>
+                                            @Model.product_quantity left
+                                        </a>*@
 
                         </li>
                     </ul>
                     <p>@Model.product_description </p>
                     <div class="product_count">
                         <label for="qty">Quantity:</label>
+
                         <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 
                         <button onclick="var result = document.getElementById('sst');
@@ -67,13 +69,15 @@
                                 class="increase items-count" type="button">
                             <i class="lnr lnr-chevron-up"></i>
                         </button>
-                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if (!isNaN(sst) & amp; & amp; sst > 0) result.value--; return false;"
+                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if (!isNaN(sst) && sst > 1) result.value--; return false;"
                                 class="reduced items-count" type="button">
                             <i class="lnr lnr-chevron-down"></i>
                         </button>
+                        <label class="quantity-left"> @Model.product_quantity left</label>
                     </div>
+
                     <div class="card_area">
-                        <a class="main_btn" href="#">Add to Cart</a>
+                        <a class="main_btn" href="@Url.Action("AddItem", "Cart", new { productId = Model.product_id, quantity = 1})">Add to Cart</a>
 
                     </div>
                 </div>
@@ -83,6 +87,6 @@
     </div>
 </div>
 <!--================End Single Product Area =================-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@

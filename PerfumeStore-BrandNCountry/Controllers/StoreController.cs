@@ -53,6 +53,7 @@ namespace PerfumeStore_BrandNCountry.Controllers
             var products = db.products.Where(p => p.category_id == categoryId && p.product_status != 0).Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
             return View(products.ToList());
         }
+
         public ActionResult Detail(int id)
         {
             var product = new ProductDAO().GetProduct(id);

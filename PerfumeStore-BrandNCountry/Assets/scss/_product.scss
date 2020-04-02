@@ -709,54 +709,59 @@
             }
         }
     }
-}
 
-.product_count {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 24px;
-    margin-top: 40px;
+    .product_count {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 24px;
+        margin-top: 40px;
 
-    label {
-        font-size: 14px;
-        color: $pfont;
-        font-family: $rob;
-        font-weight: normal;
-        padding-right: 10px;
-    }
+        label {
+            font-size: 14px;
+            color: $pfont;
+            font-family: $rob;
+            font-weight: normal;
+            padding-right: 10px;
+        }
 
-    input {
-        width: 76px;
-        border: 1px solid #eeeeee;
-        border-radius: 3px;
-        padding-left: 10px;
-    }
+        input {
+            width: 76px;
+            border: 1px solid #eeeeee;
+            border-radius: 3px;
+            padding-left: 10px;
+        }
 
-    button {
-        display: block;
-        border: none;
-        background: transparent;
-        box-shadow: none;
-        cursor: pointer;
-        position: absolute;
-        right: 0px;
-        font-size: 14px;
-        color: #cccccc;
-        @include transition;
+        button {
+            display: block;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            cursor: pointer;
+            position: absolute;
+            right: 60px;
+            font-size: 14px;
+            color: #cccccc;
+            @include transition;
 
-        &:hover {
-            color: $dip;
+            &:hover {
+                color: $dip;
+            }
+        }
+
+        .increase {
+            top: -4px;
+        }
+
+        .reduced {
+            bottom: -1px;
+        }
+
+        .quantity-left {
         }
     }
-
-    .increase {
-        top: -4px;
-    }
-
-    .reduced {
-        bottom: -1px;
-    }
 }
+
+
 
 .product_description_area {
     padding-bottom: 120px;
@@ -1009,6 +1014,56 @@
 
 /* End Single Product Area css
 ============================================================================================ */
+
+.product_count {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 24px;
+    margin-top: 40px;
+
+    label {
+        font-size: 14px;
+        color: $pfont;
+        font-family: $rob;
+        font-weight: normal;
+        padding-right: 10px;
+    }
+
+    input {
+        width: 76px;
+        border: 1px solid #eeeeee;
+        border-radius: 3px;
+        padding-left: 10px;
+    }
+
+    button {
+        display: block;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        cursor: pointer;
+        position: absolute;
+        right: 0px;
+        font-size: 14px;
+        color: #cccccc;
+        @include transition;
+
+        &:hover {
+            color: $dip;
+        }
+    }
+
+    .increase {
+        top: -4px;
+    }
+
+    .reduced {
+        bottom: -1px;
+    }
+
+    .quantity-left {
+    }
+}
 
 /* Cart Area css
 ============================================================================================ */
@@ -1318,6 +1373,8 @@
         color: $baseColor;
     }
 }
+
+
 
 /* End Cart Area css
 ============================================================================================ */

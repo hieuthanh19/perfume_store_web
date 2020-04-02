@@ -139,9 +139,8 @@
                 margin: 30,
                 items: 4,
                 nav: false,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
+                autoplay: false,
+                
                 smartSpeed: 1500,
                 dots:true, 
 				navContainer: '.testimonials_area',
