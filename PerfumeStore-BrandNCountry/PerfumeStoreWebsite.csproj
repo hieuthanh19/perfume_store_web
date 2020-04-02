@@ -195,6 +195,7 @@
     <Compile Include="Areas\Admin\Models\LogInModel.cs" />
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1387,6 +1389,7 @@
     <Content Include="Areas\Admin\app-assets\vendors\js\ui\unison.min.js" />
     <Content Include="Areas\Admin\app-assets\vendors\js\vendors.min.js" />
     <Content Include="Areas\Admin\assets\css\style.css" />
+    <Content Include="Assets\js\Controller\cartController.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1728,6 +1731,7 @@
     <Content Include="Areas\Admin\Views\orderItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\orderItems\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
@@ -1805,6 +1809,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Search\searchPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
