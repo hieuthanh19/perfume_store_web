@@ -18,6 +18,7 @@ namespace PerfumeStore_BrandNCountry.Controllers
             var pr = from p in db.products select p;
             pr = db.products.Where(p => p.product_name.Contains(searchString));
             ViewBag.imgPath = imgDir;
+            ViewBag.categories = db.categories.Where(c => c.category_status == 1);
             return View(pr.ToList());
         }
 

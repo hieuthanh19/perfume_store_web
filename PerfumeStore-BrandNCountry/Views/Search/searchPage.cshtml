@@ -16,7 +16,7 @@
             <div class="col-lg-6 offset-3">
                 <div class="search-bar">
                     <!-- Search bar start -->
-                    @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                    @using (Html.BeginForm("searchPage", "Search", FormMethod.Get))
                     {
                         <div class="input-group mb-4 border rounded-pill search-bar">
                             <input type="text" name="searchString" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0">
@@ -52,7 +52,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
+                <a href="@Url.Action("Detail", "Store", new { id = item.product_id})">
                     <h4>@item.product_name</h4>
                 </a>
 
