@@ -1787,7 +1787,6 @@
     <Content Include="Areas\Admin\Views\orderItems\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Areas\Admin\app-assets\login style\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\app-assets\login style\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Areas\Admin\app-assets\login style\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -1956,6 +1955,7 @@
     <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Search\searchPage.cshtml" />
     <Content Include="Views\Shared\FooterCategory.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

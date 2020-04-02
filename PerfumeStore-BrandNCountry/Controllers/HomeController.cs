@@ -56,14 +56,6 @@ namespace PerfumeStore_BrandNCountry.Controllers
             return View();
         }
 
-        public ActionResult Detail(int id)
-        {
-            var product = new ProductDAO().GetProduct(id);
-            ViewBag.imgPath = imgDir;
-            ViewBag.Message = "Your detail page.";
-            ViewBag.id = id;
-     
-            return View(product);
-        }
+        
     }
 }
