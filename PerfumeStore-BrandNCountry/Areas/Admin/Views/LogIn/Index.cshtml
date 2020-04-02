@@ -1,127 +1,105 @@
 ﻿@model PerfumeStore_BrandNCountry.Areas.Admin.Models.LogInModel
-
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login | ATM Admin Page</title>
+    <title>Login </title>
     <link rel="shortcut icon" type="image/x-icon" href="~/Areas/Admin/app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/file-uploaders/dropzone.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/tables/datatable/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css">
-    <!-- END: Vendor CSS-->
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/plugins/file-uploaders/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/pages/data-list-view.css">
-    <!-- END: Page CSS-->
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/assets/css/style.css">
-    <!-- END: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/css/pages/authentication.css">
-    <style>
-        .validation-summary-errors ul li {
-            color: #da5454;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/app-assets/login style/css/main.css">
+    <!--===============================================================================================-->
 </head>
-<body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-                <section class="row flexbox-container">
-                    <div class="col-xl-8 col-11 d-flex justify-content-center">
-                        <div class="card bg-authentication rounded-0 mb-0">
-                            <div class="row m-0">
-                                <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                    <img src="~/Areas/Admin/app-assets/images/pages/login.png" alt="branding logo">
-                                </div>
-                                <div class="col-lg-6 col-12 p-0">
-                                    <div class="card rounded-0 mb-0 px-2">
-                                        <div class="card-header pb-1">
-                                            <div class="card-title">
-                                                <h4 class="mb-0">Login</h4>
-                                            </div>
-                                        </div>
-                                        <p class="px-2">Welcome back, please login to your account.</p>
-                                        <div class="card-content">
-                                            <div class="card-body pt-1">
-                                                @using (Html.BeginForm("Login", "LogIn", FormMethod.Post))
-                                                {
-                                                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-logo">
+                        <i class="zmdi zmdi-sign-in"></i>
+                    </span>
+                    <span class="login100-form-title p-b-34 p-t-27">
+                        Log in
+                    </span>
 
-                                                    <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        @Html.TextBoxFor(model=>model.username, new { @class= "form-control", @autofocus = "autofocus", @isRequired = "required"})
-                                                        @*<input type="text" class="form-control" id="user-name" name="username" placeholder="Username" required>*@
-                                                        <div class="form-control-position">
-                                                            <i class="feather icon-user"></i>
-                                                        </div>
-                                                        <label for="user-name">Username</label>
-                                                    </fieldset>
-
-                                                    <fieldset class="form-label-group position-relative has-icon-left">
-                                                        @Html.PasswordFor(model => model.password, new { @class = "form-control", @isRequired = "required" })
-                                                        @*<input type="password" class="form-control" id="user-password" name="password" placeholder="Password" required>*@
-                                                        <div class="form-control-position">
-                                                            <i class="feather icon-lock"></i>
-                                                        </div>
-                                                        <label for="user-password">Password</label>
-                                                    </fieldset>
-                                                    <div class="form-group d-flex justify-content-between align-items-center">
-                                                        @*<div class="text-left">
-                                                            <% if (errorCode != -1) {%>
-                                                            <p class="error-message">Log in failed! <br><%=errorMsg%></p>
-                                                            <% }%>
-                                                        </div>*@
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline ">Login</button>
-                                                }
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="login-footer">
-                                            <p> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
-                </section>
 
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-90">
+                        <a class="forgot-password" href="#">
+                            Forgot Password?
+                        </a>
+                        <a>
+                            <p class="registerhere">
+                                <a href="/Admin/Register/index" class="loginhere-link">Create new account</a>
+                            </p>
+                        </a>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- BEGIN: Vendor JS-->
-    <script src="~/Areas/Admin/app-assets/vendors/js/vendors.min.js"></script>
-    <!-- BEGIN Vendor JS-->
-    <!-- BEGIN: Page Vendor JS-->
-    <!-- END: Page Vendor JS-->
-    <!-- BEGIN: Theme JS-->
-    <script src="~/Areas/Admin/app-assets/js/core/app-menu.js"></script>
-    <script src="~/Areas/Admin/app-assets/js/core/app.js"></script>
-    <script src="~/Areas/Admin/app-assets/js/scripts/components.js"></script>
-    <!-- END: Theme JS-->
-    <!-- BEGIN: Page JS-->
-    <!-- END: Page JS-->
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Areas/Admin/app-assets/login style/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Areas/Admin/app-assets/login style/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/app-assets/login style/js/main.js"></script>
 
 </body>
 </html>
-
