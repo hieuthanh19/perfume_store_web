@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Model.EF.product>
+@{
+    ViewBag.Title = "searchPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--================Search Area =================-->
+<section class="contact_area p_60" style="margin-top: 90px">
+    <div class="container">
+        <!--                <div id="mapBox" class="mapBox" data-lat="10.0134708" data-lon="105.731497" data-zoom="17" data-info="FPTU"
+                             data-mlat="10.0134708" data-mlon="105.731497">
+                        </div>-->
+        <div class="row">
+
+            <div class="col-lg-6 offset-3">
+                <div class="search-bar">
+                    <!-- Search bar start -->
+                    @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                    {
+                        <div class="input-group mb-4 border rounded-pill search-bar">
+                            <input type="text" name="searchString" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0">
+                            <div class="input-group-append border-0">
+                                <button id="button-addon3" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    }
+
+
+                    <!-- Search bar end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Search Area =================-->
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col ">
+            <div class="f_p_item">
+                <div class="f_p_img">
+                    <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
+                    <div class="p_icon">
+                        <a href="#">
+                            <i class="lnr lnr-heart"></i>
+                        </a>
+                        <a href="#">
+                            <i class="lnr lnr-cart"></i>
+                        </a>
+                    </div>
+                </div>
+                <a href="@Url.Action("Detail", "Home", new { id = item.product_id})">
+                    <h4>@item.product_name</h4>
+                </a>
+
+                <h5>$ @item.product_currentPrice</h5>
+            </div>
+
+        </div>
+    }
+</div>
+

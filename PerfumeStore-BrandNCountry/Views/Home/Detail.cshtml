@@ -1,0 +1,88 @@
+﻿@model Model.EF.product
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    int id = ViewBag.id;
+    
+    ViewBag.Title = "Detail";
+}
+
+<!--================Single Product Area =================-->
+<div class="product_image_area">
+    <div class="container">
+
+        <div class="row s_product_inner">
+            <div class="col-lg-6">
+                <div class="s_product_img">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators"></ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="@ViewBag.imgPath/@Model.product_id/@Model.productImgs.First().img_path" alt="First slide">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="s_product_text">
+                    <h3>@Model.product_name</h3>
+                    <h2>@Model.product_currentPrice USD</h2>
+                    <ul class="list">
+                        <li>
+                            <a class="active" href="#">
+                                <span>Brand name</span> : @Model.brand.brand_name
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active" href="#">
+                                <span>Category</span> : @Model.category.category_name
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                <span>Volume</span> : @Model.product_volume ml
+                            </a>
+                        </li>
+                        <li>
+                            <a class="">
+                                <span>Availability</span>  : @if (Model.product_status == 1)
+                                {<span style="color: green" class="glyphicon glyphicon-ok"></span>}
+                                else
+                                {<span style="color: red" class="glyphicon glyphicon-remove"></span>}
+                            </a>
+
+                        </li>
+                    </ul>
+                    <p>@Model.product_description </p>
+                    <div class="product_count">
+                        <label for="qty">Quantity:</label>
+                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+
+                        <button onclick="var result = document.getElementById('sst');
+                                        var sst = result.value;
+                                        if (!isNaN(sst))
+                                            result.value++;
+                                        return false;"
+                                class="increase items-count" type="button">
+                            <i class="lnr lnr-chevron-up"></i>
+                        </button>
+                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if (!isNaN(sst) & amp; & amp; sst > 0) result.value--; return false;"
+                                class="reduced items-count" type="button">
+                            <i class="lnr lnr-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="card_area">
+                        <a class="main_btn" href="#">Add to Cart</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--================End Single Product Area =================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
