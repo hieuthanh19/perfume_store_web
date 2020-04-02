@@ -21,9 +21,9 @@ namespace PerfumeStore_BrandNCountry.Controllers
 
         public ActionResult Index()
         {
-            var productList = db.products.Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
+            var productList = db.products.Where(p => p.product_status == 1).Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
             ViewBag.imgPath = imgDir;
-            ViewBag.categories = db.categories.Where(c => c.category_status == 1);
+          
             return View(productList.ToList());
         }       
 
@@ -42,6 +42,13 @@ namespace PerfumeStore_BrandNCountry.Controllers
             return PartialView(list);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult FooterCategory()
+        {
+            var categories = db.categories.Where(c => c.category_status == 1);
+            return PartialView(categories);
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -55,6 +62,7 @@ namespace PerfumeStore_BrandNCountry.Controllers
             ViewBag.imgPath = imgDir;
             ViewBag.Message = "Your detail page.";
             ViewBag.id = id;
+     
             return View(product);
         }
     }

@@ -3,10 +3,10 @@
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var newProductList = Model.Where(p => p.product_status == 1).OrderByDescending(p => p.product_createdAt).Take(10).ToList();
-    var featureProductList = Model.Where(p => p.product_status == 1).Take(10).OrderBy(p => p.product_id).ToList();
-    var womenProductList = Model.Where(p => p.product_status == 1 && p.category_id == 1).Take(10).OrderBy(p => p.product_id).ToList();
-    var menProductList = Model.Where(p => p.product_status == 1 && p.category_id == 2).Take(10).OrderBy(p => p.product_id).ToList();
+    var newProductList = Model.OrderByDescending(p => p.product_createdAt).Take(10).ToList();
+    var featureProductList = Model.Take(10).OrderBy(p => p.product_id).ToList();
+    var womenProductList = Model.Where(p => p.category_id == 1).Take(10).OrderBy(p => p.product_id).ToList();
+    var menProductList = Model.Where(p => p.category_id == 2).Take(10).OrderBy(p => p.product_id).ToList();
 }
 
 <!--================Home Banner Area =================-->

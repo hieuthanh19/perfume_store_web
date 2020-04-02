@@ -60,7 +60,7 @@ namespace Model.DAO
         public X.PagedList.IPagedList<product> getSortedProductList()
         {
             //get all products
-            var productList = db.products.Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
+            var productList = db.products.Where(p => p.product_status == 1).Include(p => p.brand).Include(p => p.category).Include(p => p.productImgs);
             if (!search.Equals(""))
             {
                 productList = productList.Where(p => p.product_name.Contains(search));

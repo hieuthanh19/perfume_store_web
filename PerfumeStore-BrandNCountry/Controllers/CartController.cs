@@ -27,7 +27,7 @@ namespace PerfumeStore_BrandNCountry.Controllers
                 list = (List<CartItem>)cart;
             }
             ViewBag.imgPath = imgPath;
-            ViewBag.categories = db.categories.Where(c => c.category_status == 1);
+           
             return View(list);
         }
 

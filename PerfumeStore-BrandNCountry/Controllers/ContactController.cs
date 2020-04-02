@@ -13,7 +13,7 @@ namespace PerfumeStore_BrandNCountry.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            ViewBag.categories = db.categories.Where(c => c.category_status == 1);
+          
             return View();
         }
     }

@@ -1811,10 +1811,9 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Search\searchPage.cshtml" />
+    <Content Include="Views\Shared\FooterCategory.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
