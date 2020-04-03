@@ -57,29 +57,43 @@
                     {
                     <tr>
 
-                        
+
                         <td>
                             @Html.DisplayFor(modelItem => item.delivery_name)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.delivery_description)
                         </td>
-                        
-                        <td class="@(item.delivery_status == 1 ? "active" : "locked") ">
 
-                            @if (item.delivery_status == 1)
-                                {
-                            <i class='ficon feather icon-check-circle'></i>
-                                }
-                                else
-                                {
-                            <i class='ficon feather icon-x-circle'></i>
-                                }
+                        <td>
+                            @switch (item.delivery_status)
+                            {
+                                case 0:
+                                    <i class='ficon feather icon-x-circle product-status-0'></i>
+                                    break;
+                                case 1:
+                                    <i class='ficon feather icon-check-circle product-status-1'></i>
+                                    break;
+                                case 2:
+                                    <i class='ficon feather icon-alert-circle product-status-2'></i>
+                                    break;
+                                default:
+                                    <i class='ficon feather icon-help-circle'></i>
+                                    break;
+                            }
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id=item.delivery_id }) |
-                            @Html.ActionLink("Details", "Details", new { id=item.delivery_id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id=item.delivery_id })
+                            <div class="actions row">
+                                <a class="text-info" href="@Url.Action("Details", "deliveryMethods", new { id = item.delivery_id})">
+                                    <i class='ficon feather icon-list'></i>
+                                </a>
+                                <a class="text-warning" href="@Url.Action("Edit", "deliveryMethods", new { id = item.delivery_id })">
+                                    <i class='ficon feather icon-edit-1'></i>
+                                </a>
+                                <a class="text-danger" href="@Url.Action("Delete", "deliveryMethods", new { id = item.delivery_id })">
+                                    <i class='ficon feather icon-trash-2'></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     }

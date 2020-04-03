@@ -47,7 +47,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.role_status)
                         </th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <!--table body-->
@@ -59,21 +59,34 @@
                                 @Html.DisplayFor(modelItem => item.role_name)
                             </td>
                             <td>
-                                @(item.role_status == 1 ? "" : "")
-
-                                @if (item.role_status == 1)
+                                @switch (item.role_status)
                                 {
-                                    <i class='ficon feather icon-check-circle'></i>
-                                }
-                                else
-                                {
-                                    <i class='ficon feather icon-x-circle'></i>
+                                    case 0:
+                                        <i class='ficon feather icon-x-circle product-status-0'></i>
+                                        break;
+                                    case 1:
+                                        <i class='ficon feather icon-check-circle product-status-1'></i>
+                                        break;
+                                    case 2:
+                                        <i class='ficon feather icon-alert-circle product-status-2'></i>
+                                        break;
+                                    default:
+                                        <i class='ficon feather icon-help-circle'></i>
+                                        break;
                                 }
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.role_id }, new { @class = "text-success" }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.role_id }, new { @class = "text-info" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.role_id }, new { @class = "text-danger" })
+                                <div class="actions row">
+                                    <a class="text-info" href="@Url.Action("Details", "user_role", new { id = item.role_id})">
+                                        <i class='ficon feather icon-list'></i>
+                                    </a>
+                                    <a class="text-warning" href="@Url.Action("Edit", "user_role", new { id = item.role_id })">
+                                        <i class='ficon feather icon-edit-1'></i>
+                                    </a>
+                                    <a class="text-danger" href="@Url.Action("Delete", "user_role", new { id = item.role_id })">
+                                        <i class='ficon feather icon-trash-2'></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     }
