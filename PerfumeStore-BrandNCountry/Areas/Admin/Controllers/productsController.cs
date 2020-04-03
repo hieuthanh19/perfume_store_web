@@ -86,7 +86,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
                     //To Get File Extension  
                     string FileExtension = Path.GetExtension(model.imgFile.FileName);
                     //Add Current Date To Attached File Name  
-                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                    FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + FileName.Trim() + FileExtension;
                     //string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
                     string SavePath = Server.MapPath("~/Assets/img/product/single-product/" + model.Product.product_id + "/");
                     Directory.CreateDirectory(SavePath);

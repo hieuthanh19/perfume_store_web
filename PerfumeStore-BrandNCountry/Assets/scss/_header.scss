@@ -10,14 +10,23 @@
     left: 0;
     z-index: 99;
     transition: background 0.4s, all 0.3s linear;
+
     .main_menu {
         background: #f8f8f8;
     }
+
     .navbar {
         padding: 0px;
         border: 0px;
         border-radius: 0px;
         border-top: 1px solid rgba(221, 221, 221, 0.38);
+
+        .navbar-brand {
+            img {
+                height: 60px;
+            }
+        }
+
         .right_nav {
             hr {
                 height: 80px;
@@ -26,10 +35,12 @@
                 padding: 0;
                 margin: 0;
             }
+
             .nav-item {
                 margin: 0 !important;
             }
         }
+
         .icons {
             font-size: 18px;
             line-height: 80px;
@@ -39,35 +50,43 @@
             min-height: 80px;
             text-align: center;
             @include transition;
+
             &:hover {
                 color: $baseColor;
                 background: #e4e4e4;
             }
         }
+
         .nav {
             @media (max-width: 992px) {
                 float: left;
             }
+
             .nav-item {
                 margin-right: 45px;
+
                 .nav-link {
                     font: 500 12px/80px $rob;
                     text-transform: uppercase;
                     color: $dip;
                     padding: 0px;
                     display: inline-block;
+
                     &:after {
                         display: none;
                     }
                 }
+
                 &:hover,
                 &.active {
                     .nav-link {
                         color: $baseColor;
                     }
                 }
+
                 &.submenu {
                     position: relative;
+
                     ul {
                         border: none;
                         padding: 0px;
@@ -75,6 +94,7 @@
                         box-shadow: none;
                         margin: 0px;
                         background: #fff;
+
                         @media (min-width: 992px) {
                             position: absolute;
                             top: 120%;
@@ -89,6 +109,7 @@
                             padding: 0px;
                             border-radius: 0px;
                         }
+
                         &:before {
                             content: "";
                             width: 0;
@@ -103,6 +124,7 @@
                             opacity: 0;
                             transition: all 400ms linear;
                         }
+
                         .nav-item {
                             display: block;
                             float: none;
@@ -110,6 +132,7 @@
                             border-bottom: 1px solid #ededed;
                             margin-left: 0px;
                             transition: all 0.4s linear;
+
                             .nav-link {
                                 line-height: 45px;
                                 color: $dip;
@@ -118,9 +141,11 @@
                                 display: block;
                                 margin-right: 0px;
                             }
+
                             &:last-child {
                                 border-bottom: none;
                             }
+
                             &:hover {
                                 .nav-link {
                                     background: $baseColor;
@@ -129,6 +154,7 @@
                             }
                         }
                     }
+
                     &:hover {
                         ul {
                             @media (min-width: 992px) {
@@ -136,29 +162,35 @@
                                 opacity: 1;
                                 top: 100%;
                             }
+
                             .nav-item {
                                 margin-top: 0px;
                             }
                         }
                     }
                 }
+
                 &:last-child {
                     margin-right: 0px;
                 }
             }
         }
+
         .nav.navbar-nav.navbar-right {
             li {
                 margin-left: 25px;
                 margin-right: 0px;
+
                 &:first-child {
                     margin-left: 35px;
                 }
             }
+
             @media (max-width: 992px) {
                 -ms-flex-direction: row;
                 flex-direction: row;
                 margin-bottom: 20px;
+
                 .icons {
                     background: #e4e4e4;
                     margin-right: 2px;
@@ -168,24 +200,29 @@
                 }
             }
         }
+
         .search {
             font-size: 14px;
             line-height: 80px;
             display: inline-block;
             color: $dip;
+
             i {
                 font-weight: 600;
             }
         }
+
         .cart {
             color: $dip;
             font-size: 14px;
             line-height: 80px;
+
             i {
                 font-weight: 600;
             }
         }
     }
+
     &.navbar_fixed {
         .main_menu {
             position: fixed;
@@ -197,7 +234,10 @@
             transition: transform 500ms ease, background 500ms ease;
             -webkit-transition: transform 500ms ease, background 500ms ease;
             box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+
             .navbar {
+
+
                 .nav {
                     .nav-item {
                         .nav-link {
@@ -214,6 +254,7 @@
     background: #fff;
     height: 40px;
     line-height: 16px;
+
     .float-left {
         p {
             line-height: 40px;
@@ -225,17 +266,21 @@
             text-transform: uppercase;
         }
     }
+
     .right_side {
         margin-bottom: 0px;
         padding: 12px 0;
+
         li {
             display: inline-block;
+
             &:last-child {
                 a {
                     padding-right: 0px;
                     border-right: 0px;
                 }
             }
+
             a {
                 font-size: 12px;
                 color: $pfont;
@@ -245,6 +290,7 @@
                 text-transform: uppercase;
                 padding: 0px 19px;
             }
+
             &:hover {
                 a {
                     color: $baseColor;
@@ -252,6 +298,7 @@
             }
         }
     }
+
     .ac_btn {
         line-height: 28px;
         border: 1px solid #eeeeee;
@@ -265,12 +312,14 @@
         @include transition;
         margin-right: 1px;
         margin-top: 8px;
+
         &:hover {
             background: $baseColor;
             color: #fff;
             border-color: $baseColor;
         }
     }
+
     .dn_btn {
         line-height: 28px;
         border: 1px solid $baseColor;
@@ -284,12 +333,14 @@
         @include transition;
         margin-top: 8px;
         border-radius: 3px;
+
         &:hover {
             background: transparent;
             color: $dip;
             border-color: $baseColor;
         }
     }
+
     .lan_pack {
         height: 30px;
         border: 1px solid #eeeeee;
@@ -304,9 +355,11 @@
         background: #f9f9ff;
         margin-right: 5px;
         margin-top: 8px;
+
         .current {
             color: $pfont;
         }
+
         &:after {
             content: "\f0d7";
             border: none !important;

@@ -40,6 +40,7 @@
                 @Html.LabelFor(model => model.Product.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-5">
                     @Html.EditorFor(model => model.Product.product_name, new { htmlAttributes = new { @class = "form-control" } })
+                    
                     @Html.ValidationMessageFor(model => model.Product.product_name, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,7 +48,7 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.Product.product_volume, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-2">
-                    @Html.EditorFor(model => model.Product.product_volume, new { htmlAttributes = new { @type = "number", @min = "1", @max = "1000", @step = "1", @class = "form-control" } })
+                    @Html.EditorFor(model => model.Product.product_volume, new { htmlAttributes = new { @type = "number", @min = "1", @max = "1000", @step = "1", @class = "form-control" } })                    
                     @Html.ValidationMessageFor(model => model.Product.product_volume, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -182,6 +182,8 @@ a {
     border: 0px;
     border-radius: 0px;
     border-top: 1px solid rgba(221, 221, 221, 0.38); }
+    .header_area .navbar .navbar-brand img {
+      height: 60px; }
     .header_area .navbar .right_nav hr {
       height: 80px;
       width: 1px;

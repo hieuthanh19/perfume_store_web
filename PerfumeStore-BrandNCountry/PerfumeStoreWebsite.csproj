@@ -187,7 +187,6 @@
     <Compile Include="Areas\Admin\Controllers\orderItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ordersController.cs" />
     <Compile Include="Areas\Admin\Controllers\paymentMethodsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\productImgsController.cs" />
     <Compile Include="Areas\Admin\Controllers\productsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
     <Compile Include="Areas\Admin\Controllers\usersController.cs" />
@@ -1755,11 +1754,6 @@
     <Content Include="Areas\Admin\Views\users\Details.cshtml" />
     <Content Include="Areas\Admin\Views\users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\users\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\productImgs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\productImgs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\productImgs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\productImgs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\productImgs\Index.cshtml" />
     <Content Include="Assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff" />
