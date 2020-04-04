@@ -71,9 +71,17 @@
                             @Html.DisplayFor(modelItem => item.product_price)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            <div class="actions row">
+                                <a class="text-info" href="@Url.Action("Details", new { id1 = item.order_id, id2 = item.product_id})">
+                                    <i class='ficon feather icon-list'></i>
+                                </a>
+                                <a class="text-warning" href="@Url.Action("Edit", new { id1 = item.order_id, id2 = item.product_id})">
+                                    <i class='ficon feather icon-edit-1'></i>
+                                </a>
+                                <a class="text-danger" href="@Url.Action("Delete", new { id1 = item.order_id, id2 = item.product_id})">
+                                    <i class='ficon feather icon-trash-2'></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     }

@@ -22,13 +22,13 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id1, int id2)
         {
-            if (id == null)
+            if (id1 == null || id2 == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderItem orderItem = db.orderItems.Find(id);
+            orderItem orderItem = db.orderItems.Find(id1,id2);
             if (orderItem == null)
             {
                 return HttpNotFound();
@@ -64,13 +64,13 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id1, int id2)
         {
-            if (id == null)
+            if (id1 == null || id2 == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderItem orderItem = db.orderItems.Find(id);
+            orderItem orderItem = db.orderItems.Find(id1, id2);
             if (orderItem == null)
             {
                 return HttpNotFound();
@@ -99,13 +99,13 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id1, int id2)
         {
-            if (id == null)
+            if (id1 == null || id2 == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            orderItem orderItem = db.orderItems.Find(id);
+            orderItem orderItem = db.orderItems.Find(id1, id2);
             if (orderItem == null)
             {
                 return HttpNotFound();
@@ -116,9 +116,9 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // POST: Admin/orderItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id1, int id2)
         {
-            orderItem orderItem = db.orderItems.Find(id);
+            orderItem orderItem = db.orderItems.Find(id1, id2);
             db.orderItems.Remove(orderItem);
             db.SaveChanges();
             return RedirectToAction("Index");
