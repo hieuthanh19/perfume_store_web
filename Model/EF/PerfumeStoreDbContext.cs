@@ -23,6 +23,7 @@ namespace Model.EF
         public virtual DbSet<productImg> productImgs { get; set; }
         public virtual DbSet<user_role> user_role { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<favList> favLists { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -137,9 +138,10 @@ namespace Model.EF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<product>()
-                .HasMany(e => e.users)
-                .WithMany(e => e.products)
-                .Map(m => m.ToTable("favList").MapLeftKey("product_id").MapRightKey("user_id"));
+                .HasMany(e => e.favLists)
+                 .WithRequired(e => e.product)
+                .WillCascadeOnDelete(false);
+
 
             modelBuilder.Entity<productImg>()
                 .Property(e => e.img_path)
@@ -189,6 +191,10 @@ namespace Model.EF
 
             modelBuilder.Entity<user>()
                 .HasMany(e => e.orders)
+                .WithRequired(e => e.user)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<user>()
+                .HasMany(e => e.favLists)
                 .WithRequired(e => e.user)
                 .WillCascadeOnDelete(false);
         }

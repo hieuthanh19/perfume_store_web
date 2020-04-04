@@ -14,21 +14,22 @@ namespace Model.EF
         {
             orderItems = new HashSet<orderItem>();
             productImgs = new HashSet<productImg>();
-            users = new HashSet<user>();
+            favLists = new HashSet<favList>();
+            //users = new HashSet<user>();
         }
 
         [Key, Display(Name = "ID")]
         public int product_id { get; set; }
 
-        [StringLength(200), Display(Name = "Product Name"), Required(ErrorMessage ="Please enter Product name!")]
+        [StringLength(200), Display(Name = "Product Name"), Required(ErrorMessage = "Please enter Product name!")]
         public string product_name { get; set; }
 
-        [Display(Name ="Volume (ml)"), Range(1, 1000), Required(ErrorMessage = "Please enter Product Volume!")]
+        [Display(Name = "Volume (ml)"), Range(1, 1000), Required(ErrorMessage = "Please enter Product Volume!")]
         public double? product_volume { get; set; }
 
         [Display(Name = "Quantity"), Range(0, 10000), Required(ErrorMessage = "Please enter Product Quantity!")]
         public int? product_quantity { get; set; }
-        
+
         public int? category_id { get; set; }
 
         public int brand_id { get; set; }
@@ -47,10 +48,10 @@ namespace Model.EF
         [Display(Name = "Status"), Range(0, 2)]
         public int? product_status { get; set; }
 
-        [Column(TypeName = "datetime2"), Display(Name ="Created At")]
+        [Column(TypeName = "datetime2"), Display(Name = "Created At")]
         public DateTime? product_createdAt { get; set; }
 
-        [Column(TypeName = "datetime2"),Display(Name = "Updated At")]
+        [Column(TypeName = "datetime2"), Display(Name = "Updated At")]
         public DateTime? product_updatedAt { get; set; }
 
         public virtual brand brand { get; set; }
@@ -63,9 +64,12 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<productImg> productImgs { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user> users { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<user> users { get; set; }
 
-       
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<favList> favLists { get; set; }
+
+
     }
 }

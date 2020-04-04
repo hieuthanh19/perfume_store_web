@@ -1873,6 +1873,7 @@
     <Content Include="Areas\Admin\Views\Login\index.cshtml" />
     <Content Include="Areas\Admin\Views\Register\index.cshtml" />
     <Content Include="Views\FavList\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderFav.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.min.js" />

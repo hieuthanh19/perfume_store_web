@@ -12,7 +12,8 @@ namespace Model.EF
         public user()
         {
             orders = new HashSet<order>();
-            products = new HashSet<product>();
+            //products = new HashSet<product>();
+            favLists = new HashSet<favList>();
         }
 
         [Key, Display(Name = "User ID")]
@@ -56,7 +57,10 @@ namespace Model.EF
 
         public virtual user_role user_role { get; set; }
 
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<product> products { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<product> products { get; set; }
+        public virtual ICollection<favList> favLists { get; set; }
     }
 }

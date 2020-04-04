@@ -45,13 +45,15 @@ namespace PerfumeStore_BrandNCountry.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderFav()
         {
-            var fav = Session[CommonConstant.FavSession];
-            var list = new List<FavItem>();
-            //if session already has cart
-            if (fav != null)
-            {
-                list = (List<FavItem>)fav;
-            }
+            //var fav = Session[CommonConstant.FavSession];
+            ////if session already has cart
+            //if (fav != null)
+            //{
+            //    list = (list<favitem>)fav;
+            //}
+
+            //find favlist of user with userid = 4
+            var list = db.users.Find(4).favLists.ToList();
             return PartialView(list);
         }
 

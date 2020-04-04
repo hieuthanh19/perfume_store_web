@@ -97,10 +97,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="@Url.Action("Index", "FavList")" class="icons">
-                                        <i class="lnr lnr lnr-heart"></i>
-                                        (@Model.Count)
-                                    </a>
+                                    @{ Html.RenderAction("HeaderFav", "Home");}
                                 </li>
 
                                 <li class="nav-item">

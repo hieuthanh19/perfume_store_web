@@ -114,6 +114,7 @@
     <Compile Include="EF\category.cs" />
     <Compile Include="EF\country.cs" />
     <Compile Include="EF\deliveryMethod.cs" />
+    <Compile Include="EF\favList.cs" />
     <Compile Include="EF\order.cs" />
     <Compile Include="EF\orderItem.cs" />
     <Compile Include="EF\paymentMethod.cs" />

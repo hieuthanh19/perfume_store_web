@@ -17,15 +17,17 @@ namespace PerfumeStore_BrandNCountry.Controllers
         // GET: FavList
         public ActionResult Index()
         {
-            var fav = Session[FavListSession];
-            var list = new List<FavItem>();
-            //if session already has cart
-            if (fav != null)
-            {
-                list = (List<FavItem>)fav;
-            }
+            //var fav = Session[FavListSession];
+            //var list = new List<FavItem>();
+            ////if session already has cart
+            //if (fav != null)
+            //{
+            //    list = (List<FavItem>)fav;
+            //}
+            //ViewBag.imgPath = imgPath;
+            //find favlist from user
+            var list = db.users.Find(4).favLists.ToList();            
             ViewBag.imgPath = imgPath;
-
             return View(list);
         }
 
