@@ -101,7 +101,7 @@
                             <div class="f_p_img">
                                 <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "FavList", new { productId = @item.product_id})">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
                                     <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
@@ -146,7 +146,7 @@
                             <div class="f_p_img">
                                 <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "FavList", new { productId = @item.product_id})">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
                                     <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
@@ -190,7 +190,7 @@
                             <div class="f_p_img">
                                 <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "FavList", new { productId = @item.product_id})">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
                                     <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
@@ -235,7 +235,7 @@
                             <div class="f_p_img">
                                 <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
-                                    <a href="#">
+                                    <a href="@Url.Action("AddItem", "FavList", new { productId = @item.product_id})">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
                                     <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">

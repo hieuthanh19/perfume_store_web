@@ -1,0 +1,101 @@
+﻿@model List<PerfumeStore_BrandNCountry.Models.FavItem>
+@{
+    ViewBag.Title = "Favorite List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="/Assets/js/Controller/cartController.js"></script>
+}
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>Favorite List</h2>
+                <div class="page_link">
+                    @Html.ActionLink("Home", "index", "Home")
+                    @Html.ActionLink("FavList", "index", "FavList")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                @*Start Favorite Item*@
+                                <tr>
+                                    <td>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img src="@ViewBag.imgPath/@item.Product.product_id/@item.Product.productImgs.First().img_path" alt="@item.Product.product_name">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>@item.Product.product_name</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h5>$@item.Product.product_currentPrice.GetValueOrDefault(0)</h5>
+                                    </td>
+                                    <td>@Html.ActionLink("Delete", "DeleteItem", new { productId = item.Product.product_id })</td>
+                                </tr>
+                                @*End Favorite Item*@
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4">Favorite list is empty!</td>
+                            </tr>
+
+                        }
+
+                        @*Clear favorite list*@
+                        @if (Model.Count > 0)
+                        {
+                            <tr class="bottom_button">
+                                <td></td>
+                                <td>
+                                    @Html.ActionLink("Clear List", "DeleteAll", null, new { @class = "gray-btn" })
+                                    @*<button id="btnClear" class="gray_btn">Clear List</button>*@
+                                </td>
+                                <td></td>
+                            </tr>
+                        }
+
+                        @*Countinue shopping*@
+                        <tr class="out_button_area">
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">
+                                <div class="checkout_btn_inner">
+                                    @Html.ActionLink("Continue Shopping", "Index", "Home", null, new { @class = "gray_btn" })
+                                </div>
+                            </td>
+                        </tr>
+                        @*Countinue Shopping*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Favorite List Area =================-->
+

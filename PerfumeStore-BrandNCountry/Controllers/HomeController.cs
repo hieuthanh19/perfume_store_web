@@ -43,6 +43,19 @@ namespace PerfumeStore_BrandNCountry.Controllers
         }
 
         [ChildActionOnly]
+        public PartialViewResult HeaderFav()
+        {
+            var fav = Session[CommonConstant.FavSession];
+            var list = new List<FavItem>();
+            //if session already has cart
+            if (fav != null)
+            {
+                list = (List<FavItem>)fav;
+            }
+            return PartialView(list);
+        }
+
+        [ChildActionOnly]
         public PartialViewResult FooterCategory()
         {
             var categories = db.categories.Where(c => c.category_status == 1);
