@@ -178,11 +178,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\UserAuthorizeAttribute.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\brandsController.cs" />
     <Compile Include="Areas\Admin\Controllers\categoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\deliveryMethodsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeniedController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogInController.cs" />
     <Compile Include="Areas\Admin\Controllers\orderItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ordersController.cs" />
@@ -1185,6 +1188,10 @@
     <Content Include="Areas\Admin\app-assets\js\scripts\tooltip\tooltip.js" />
     <Content Include="Areas\Admin\app-assets\js\scripts\tooltip\tooltip.min.js" />
     <Content Include="Areas\Admin\app-assets\js\scripts\ui\data-list-view.js" />
+    <Content Include="Assets\js\Controller\home.js" />
+    <Content Include="Assets\js\Controller\login.js" />
+    <Content Include="Assets\js\Controller\register.js" />
+    <Content Include="Assets\js\notify.min.js" />
     <Content Include="Assets\login style\css\bootstrap.css" />
     <Content Include="Assets\login style\css\breadcrumb.css" />
     <Content Include="Assets\login style\css\font-awesome.min.css" />
@@ -2112,6 +2119,8 @@
     <Content Include="Assets\register style\vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Assets\register style\vendors\nice-select\.DS_Store" />
     <Content Include="Assets\register style\vendors\owl-carousel\.DS_Store" />
+    <Content Include="Areas\Admin\Views\Denied\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Denied.cshtml" />
     <None Include="Views\Home\Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.js" />
     <Content Include="Views\Home\Scripts\jquery-3.3.1.min.js" />
@@ -2194,7 +2203,9 @@
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\SignIn\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Base\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />

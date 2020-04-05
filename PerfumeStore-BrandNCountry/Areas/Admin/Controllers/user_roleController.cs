@@ -7,19 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class user_roleController : Controller
+    public class user_roleController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/user_role
+        [UserAuthorize]
         public ActionResult Index()
         {
             return View(db.user_role.ToList());
         }
-
+        [UserAuthorize]
         // GET: Admin/user_role/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +36,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(user_role);
         }
-
+        [UserAuthorize]
         // GET: Admin/user_role/Create
         public ActionResult Create()
         {
@@ -45,6 +47,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "role_id,role_name,role_status")] user_role user_role)
         {
@@ -57,7 +60,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
             return View(user_role);
         }
-
+        [UserAuthorize]
         // GET: Admin/user_role/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,6 +80,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "role_id,role_name,role_status")] user_role user_role)
         {
@@ -88,7 +92,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(user_role);
         }
-
+        [UserAuthorize]
         // GET: Admin/user_role/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -103,7 +107,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(user_role);
         }
-
+        [UserAuthorize]
         // POST: Admin/user_role/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

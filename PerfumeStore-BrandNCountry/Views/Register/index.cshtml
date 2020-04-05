@@ -58,7 +58,8 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner reg_form">
                         <h3>Create an Account</h3>
-                        <form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="row login_form" id="contactForm" novalidate="novalidate">
+                            <p id="alertNotification"></p>
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                             </div>
@@ -66,7 +67,7 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="password" class="form-control" id="pass" name="pass" placeholder="Confirm password">
@@ -78,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="btn submit_btn">Register</button>
+                                <button type="button" class="btn submit_btn" id="btnRegister">Register</button>
                             </div>
                         </form>
                     </div>
@@ -196,5 +197,6 @@
     <script src="~/Assets/register style/vendors/counter-up/jquery.waypoints.min.js"></script>
     <script src="~/Assets/register style/vendors/counter-up/jquery.counterup.js"></script>
     <script src="~/Assets/register style/js/theme.js"></script>
+    <script src="~/Assets/js/Controller/register.js"></script>
 </body>
 </html>

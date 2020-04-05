@@ -7,20 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class categoriesController : Controller
+    public class categoriesController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/categories
+        [UserAuthorize]
         public ActionResult Index()
         {
             return View(db.categories.ToList());
         }
 
         // GET: Admin/categories/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +39,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/categories/Create
+        [UserAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +49,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "category_id,category_name,category_status")] category category)
         {
@@ -59,6 +64,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/categories/Edit/5
+        [UserAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +83,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "category_id,category_name,category_status")] category category)
         {
@@ -90,6 +97,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/categories/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -103,7 +111,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(category);
         }
-
+        [UserAuthorize]
         // POST: Admin/categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

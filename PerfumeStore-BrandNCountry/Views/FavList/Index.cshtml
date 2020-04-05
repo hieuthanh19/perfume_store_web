@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Favorite List";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+    var session = (PerfumeStore_BrandNCountry.Common.UserLogin)Session[PerfumeStore_BrandNCountry.Common.CommonConstant.USER_SESSION];
 }
 @section jsFooter{
     <script src="/Assets/js/Controller/cartController.js"></script>
@@ -25,38 +25,56 @@
 <section class="feature_product_area section_gap" id="feature-product">
     <div class="main_box">
         <div class="container-fluid">
-            @*<div class="row">
+            <div class="row">
                 <div class="main_title">
-                    <h2>Featured Fragrances</h2>
-                    <p>Perfumes that loved by our customers.</p>
+                    <h2>Favorite List</h2>
+                    <p>All product you like at here.</p>
                 </div>
-            </div>*@
+            </div>
             <div class="row">
                 @*Get 10 product sorted by product ID with acitve status *@
 
-                @foreach (var item in Model)
+                @if (session != null)
                 {
-                    <div class="col ">
-                        <div class="f_p_item">
-                            <div class="f_p_img">
-                                <img class="img-fluid" src="@ViewBag.imgPath/@item.product.product_id/@item.product.productImgs.First().img_path" alt="@item.product.product_name">
-                                <div class="p_icon">
-                                    @*check sản phẩm có nằm trong favlist ở các trang khác. Trang này mặc định là active rồi. Mấy trang khác thì có 2 trạng thái nên sẽ dùng if để check *@
-                                    <a class="active" href="@Url.Action("RemoveItem", "FavList", new { productId = @item.product.product_id})">
-                                        <i class="lnr lnr-heart"></i>
+                    if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col ">
+                                <div class="f_p_item">
+                                    <div class="f_p_img">
+                                        <img class="img-fluid" src="@ViewBag.imgPath/@item.product.product_id/@item.product.productImgs.First().img_path" alt="@item.product.product_name">
+                                        <div class="p_icon">
+                                            @*check sản phẩm có nằm trong favlist ở các trang khác. Trang này mặc định là active rồi. Mấy trang khác thì có 2 trạng thái nên sẽ dùng if để check *@
+                                            <a class="active" href="@Url.Action("DeleteItem", "FavList", new { productId = @item.product.product_id})">
+                                                <i class="lnr lnr-heart"></i>
+                                            </a>
+                                            <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
+                                                <i class="lnr lnr-cart"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Detail", "Store", new { id = item.product_id})">
+                                        <h4>@item.product.product_name</h4>
                                     </a>
-                                    <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">
-                                        <i class="lnr lnr-cart"></i>
-                                    </a>
+
+                                    <h5>$ @item.product.product_currentPrice</h5>
                                 </div>
+
                             </div>
-                            <a href="@Url.Action("Detail", "Store", new { id = item.product_id})">
-                                <h4>@item.product.product_name</h4>
-                            </a>
-
-                            <h5>$ @item.product.product_currentPrice</h5>
+                        }
+                    }
+                    else
+                    {
+                        <div class="col-lg-12 text-center">
+                            <p class="text-danger">No product favorite.</p>
                         </div>
-
+                    }
+                }
+                else
+                {
+                    <div class="col-lg-12 text-center">
+                        <p class="text-danger">Sign in to see your favorite products.</p>
                     </div>
                 }
             </div>

@@ -11,16 +11,18 @@ using Model.DAO;
 using System.IO;
 using System.Configuration;
 using PerfumeStore_BrandNCountry.Common;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class productsController : Controller
+    public class productsController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
         private CommonUtils commonUtils = new CommonUtils();
         private string imgDir = "/Assets/img/product/single-product";
 
         // GET: Admin/products
+        [UserAuthorize]
         public ActionResult Index()
         {
 
@@ -31,6 +33,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/products/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -48,6 +51,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/products/Create
+        [UserAuthorize]
         public ActionResult Create()
         {
             ViewBag.brand_id = new SelectList(db.brands, "brand_id", "brand_name");
@@ -61,6 +65,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ProductNProductImgDAO model)
         {
@@ -118,6 +123,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/products/Edit/5
+        [UserAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -145,6 +151,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductNProductImgDAO model)
         {
@@ -215,6 +222,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/products/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -233,6 +241,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/products/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

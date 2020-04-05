@@ -7,20 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class paymentMethodsController : Controller
+    public class paymentMethodsController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/paymentMethods
+        [UserAuthorize]
         public ActionResult Index()
         {
             return View(db.paymentMethods.ToList());
         }
 
         // GET: Admin/paymentMethods/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,7 +38,8 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             return View(paymentMethod);
         }
 
-        // GET: Admin/paymentMethods/Create
+        // GET: Admin/paymentMethods/
+        [UserAuthorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +49,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "payment_id,payment_name,payment_description,payment_status")] paymentMethod paymentMethod)
         {
@@ -59,6 +64,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/paymentMethods/Edit/5
+        [UserAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +83,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "payment_id,payment_name,payment_description,payment_status")] paymentMethod paymentMethod)
         {
@@ -90,6 +97,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/paymentMethods/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +114,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/paymentMethods/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
