@@ -43,11 +43,8 @@ namespace Model.DAO
         public bool Login (string username, string password)
         {
             //MD5 encode
-            var md5 = new MD5CryptoServiceProvider();
-            var originalBytes = Encoding.Default.GetBytes(password);
-            var encodedBytes = md5.ComputeHash(originalBytes);
 
-            string encodedPassword = BitConverter.ToString(encodedBytes);
+            string encodedPassword = MD5Hash(password);
             var result = db.users.Count((x) => x.user_username == username && x.user_password == encodedPassword);
             if (result > 0)
                 return true;
@@ -64,6 +61,18 @@ namespace Model.DAO
         public user GetByUsername(string username)
         {
             return db.users.SingleOrDefault(x => x.user_username == username);
+        }
+        public static string MD5Hash(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash.Append(bytes[i].ToString("x2"));
+            }
+            return hash.ToString();
         }
     }
 }

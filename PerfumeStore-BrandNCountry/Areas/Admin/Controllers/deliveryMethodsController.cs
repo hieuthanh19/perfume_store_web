@@ -7,19 +7,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class deliveryMethodsController : Controller
+    public class deliveryMethodsController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
-
+        [UserAuthorize]
         // GET: Admin/deliveryMethods
         public ActionResult Index()
         {
             return View(db.deliveryMethods.ToList());
         }
-
+        [UserAuthorize]
         // GET: Admin/deliveryMethods/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +35,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(deliveryMethod);
         }
-
+        [UserAuthorize]
         // GET: Admin/deliveryMethods/Create
         public ActionResult Create()
         {
@@ -45,6 +46,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "delivery_id,delivery_name,delivery_description,delivery_status")] deliveryMethod deliveryMethod)
         {
@@ -57,7 +59,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
             return View(deliveryMethod);
         }
-
+        [UserAuthorize]
         // GET: Admin/deliveryMethods/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,6 +79,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "delivery_id,delivery_name,delivery_description,delivery_status")] deliveryMethod deliveryMethod)
         {
@@ -90,6 +93,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/deliveryMethods/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -103,7 +107,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(deliveryMethod);
         }
-
+        [UserAuthorize]
         // POST: Admin/deliveryMethods/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

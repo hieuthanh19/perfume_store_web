@@ -83,6 +83,9 @@
 
     <script>
         $(document).ready(function () {
+            $('#btnLogout').click(function () {
+                window.location.href = '/Admin/Login/Logout';
+            })
             var currentURL = window.location.href.toLowerCase();
             var listHref = $('li a');
             var finalIndex = -1

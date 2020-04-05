@@ -7,19 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class CountriesController : Controller
+    public class CountriesController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/Countries
+        [UserAuthorize]
         public ActionResult Index()
         {
             return View(db.countries.ToList());
         }
-
+        [UserAuthorize]
         // GET: Admin/Countries/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +36,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(country);
         }
-
+        [UserAuthorize]
         // GET: Admin/Countries/Create
         public ActionResult Create()
         {
@@ -45,6 +47,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "country_id,country_name,country_status,country_createdAt")] country country)
         {
@@ -58,7 +61,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
             return View(country);
         }
-
+        [UserAuthorize]
         // GET: Admin/Countries/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,6 +81,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "country_id,country_name,country_status,country_createdAt")] country country)
         {
@@ -91,6 +95,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/Countries/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +111,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // POST: Admin/Countries/Delete/5
+        [UserAuthorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

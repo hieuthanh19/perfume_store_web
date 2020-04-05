@@ -7,14 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class ordersController : Controller
+    public class ordersController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/orders
+        [UserAuthorize]
         public ActionResult Index()
         {
             var orders = db.orders.Include(o => o.deliveryMethod).Include(o => o.paymentMethod).Include(o => o.user);
@@ -22,6 +24,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orders/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orders/Create
+        [UserAuthorize]
         public ActionResult Create()
         {
             ViewBag.deliveryMethod_id = new SelectList(db.deliveryMethods, "delivery_id", "delivery_name");
@@ -49,6 +53,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "order_id,user_id,order_paymentStatus,order_handledBy,order_status,order_paymentMethod,order_totalCost,order_receiverName,order_receiverAddress,order_receiverPhone,order_receiverEmail,deliveryMethod_id,order_deliveryStatus,order_createdAt,order_updatedAt,order_deliveredAt")] order order)
         {
@@ -64,7 +69,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             ViewBag.user_id = new SelectList(db.users, "user_id", "user_username", order.user_id);
             return View(order);
         }
-
+        [UserAuthorize]
         // GET: Admin/orders/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -87,6 +92,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "order_id,user_id,order_paymentStatus,order_handledBy,order_status,order_paymentMethod,order_totalCost,order_receiverName,order_receiverAddress,order_receiverPhone,order_receiverEmail,deliveryMethod_id,order_deliveryStatus,order_createdAt,order_updatedAt,order_deliveredAt")] order order)
         {
@@ -103,6 +109,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orders/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -119,6 +126,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/orders/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

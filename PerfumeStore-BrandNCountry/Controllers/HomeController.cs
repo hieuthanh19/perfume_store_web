@@ -53,7 +53,12 @@ namespace PerfumeStore_BrandNCountry.Controllers
             //}
 
             //find favlist of user with userid = 4
-            var list = db.users.Find(4).favLists.ToList();
+            var mems = (UserLogin)Session[CommonConstant.USER_SESSION];
+            var list = new List<favList>();
+            if (mems != null)
+            {
+                list = db.favLists.Where(x => x.user_id == mems.userId).ToList();
+            }
             return PartialView(list);
         }
 
@@ -63,7 +68,37 @@ namespace PerfumeStore_BrandNCountry.Controllers
             var categories = db.categories.Where(c => c.category_status == 1);
             return PartialView(categories);
         }
-
+        public JsonResult AddToFavoriteList(int productid)
+        {
+            var mems = (UserLogin)Session[CommonConstant.USER_SESSION];
+            if(mems == null)
+            {
+                return Json(new
+                {
+                    status = false,
+                    msg = "Please sign in"
+                }, JsonRequestBehavior.AllowGet);
+            }
+            var listExist = db.favLists.Where(x => x.user_id == mems.userId && x.product_id == productid).FirstOrDefault();
+            if(listExist != null)
+            {
+                return Json(new
+                {
+                    status = false,
+                    msg = "Product is exits on favorite list"
+                }, JsonRequestBehavior.AllowGet);
+            }
+            var model = new favList();
+            model.product_id = productid;
+            model.user_id = mems.userId;
+            db.favLists.Add(model);
+            db.SaveChanges();
+            return Json(new
+            {
+                status = true,
+                msg = "Add product on favorite list success"
+            }, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

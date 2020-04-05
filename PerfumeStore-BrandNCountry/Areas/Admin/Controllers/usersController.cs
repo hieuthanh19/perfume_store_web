@@ -7,20 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class usersController : Controller
+    public class usersController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
-
+        [UserAuthorize]
         // GET: Admin/users
         public ActionResult Index()
         {
             var users = db.users.Include(u => u.user_role);
             return View(users.ToList());
         }
-
+        [UserAuthorize]
         // GET: Admin/users/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,7 +36,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             }
             return View(user);
         }
-
+        [UserAuthorize]
         // GET: Admin/users/Create
         public ActionResult Create()
         {
@@ -47,6 +48,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "user_id,user_username,user_password,user_roleId,user_fullName,user_address,user_phone,user_email,user_avartar,user_createdAt,user_status")] user user)
         {
@@ -60,7 +62,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             ViewBag.user_roleId = new SelectList(db.user_role, "role_id", "role_name", user.user_roleId);
             return View(user);
         }
-
+        [UserAuthorize]
         // GET: Admin/users/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -81,6 +83,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "user_id,user_username,user_password,user_roleId,user_fullName,user_address,user_phone,user_email,user_avartar,user_createdAt,user_status")] user user)
         {
@@ -93,7 +96,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
             ViewBag.user_roleId = new SelectList(db.user_role, "role_id", "role_name", user.user_roleId);
             return View(user);
         }
-
+        [UserAuthorize]
         // GET: Admin/users/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -111,6 +114,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/users/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

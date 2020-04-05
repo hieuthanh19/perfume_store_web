@@ -1,19 +1,33 @@
-﻿
+﻿@{ 
+    var session = (PerfumeStore_BrandNCountry.Common.UserLogin)Session[PerfumeStore_BrandNCountry.Common.CommonConstant.USER_SESSION];
+}
 <!--================Header Menu Area =================-->
 <header class="header_area">
     <div class="top_menu row m0">
         <div class="container-fluid">
             <div class="float-right">
                 <ul class="right_side">
-                  
+
+                    @if (session != null)
+                    {
+                        <li>
+                            @session.username
+                        </li>
+                        <li>
+                            @Html.ActionLink("Logout", "Logout", "SignIn")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("Register", "Index", "Register")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Login", "Index", "SignIn")
+                        </li>
+                    }
                     <li>
-                        @Html.ActionLink("Register", "Index", "Register")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Login", "Index", "SignIn")
-                    </li>                   
-                    <li>
-                        @Html.ActionLink("Contact", "Index", "Contact")                       
+                        @Html.ActionLink("Contact", "Index", "Contact")
                     </li>
                 </ul>
             </div>

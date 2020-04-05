@@ -7,14 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class brandsController : Controller
+    public class brandsController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/brands
+        [UserAuthorize]
         public ActionResult Index()
         {
             var brands = db.brands.Include(b => b.country);
@@ -22,6 +24,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/brands/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/brands/Create
+        [UserAuthorize]
         public ActionResult Create()
         {
             ViewBag.country_id = new SelectList(db.countries, "country_id", "country_name");
@@ -47,6 +51,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "brand_id,brand_name,country_id,brand_status, brand_createdAt")] brand brand)
         {
@@ -64,6 +69,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/brands/Edit/5
+        [UserAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +89,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "brand_id,brand_name,country_id,brand_createdAt,brand_status")] brand brand)
         {
@@ -97,6 +104,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/brands/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,6 +121,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/brands/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -7,14 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model.EF;
+using PerfumeStore_BrandNCountry.Areas.Admin.Code;
 
 namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 {
-    public class orderItemsController : Controller
+    public class orderItemsController : BaseController
     {
         private PerfumeStoreDbContext db = new PerfumeStoreDbContext();
 
         // GET: Admin/orderItems
+        [UserAuthorize]
         public ActionResult Index()
         {
             var orderItems = db.orderItems.Include(o => o.order).Include(o => o.product);
@@ -22,6 +24,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Details/5
+        [UserAuthorize]
         public ActionResult Details(int? id1, int id2)
         {
             if (id1 == null || id2 == null)
@@ -37,6 +40,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Create
+        [UserAuthorize]
         public ActionResult Create()
         {
             ViewBag.order_id = new SelectList(db.orders, "order_id", "order_receiverName");
@@ -48,6 +52,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "order_id,product_id,orderItem_quantity,product_price")] orderItem orderItem)
         {
@@ -64,6 +69,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Edit/5
+        [UserAuthorize]
         public ActionResult Edit(int? id1, int id2)
         {
             if (id1 == null || id2 == null)
@@ -84,6 +90,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "order_id,product_id,orderItem_quantity,product_price")] orderItem orderItem)
         {
@@ -99,6 +106,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
         }
 
         // GET: Admin/orderItems/Delete/5
+        [UserAuthorize]
         public ActionResult Delete(int? id1, int id2)
         {
             if (id1 == null || id2 == null)
@@ -115,6 +123,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Controllers
 
         // POST: Admin/orderItems/Delete/5
         [HttpPost, ActionName("Delete")]
+        [UserAuthorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id1, int id2)
         {
