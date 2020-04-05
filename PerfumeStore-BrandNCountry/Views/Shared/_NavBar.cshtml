@@ -7,28 +7,11 @@
                 <ul class="right_side">
                   
                     <li>
-                        <a href="registration.jsp">
-                            Register
-                        </a>
+                        @Html.ActionLink("Register", "Index", "Register")
                     </li>
                     <li>
-                        <a href="login.jsp">
-                            Login
-                        </a>
-                    </li>
-                  
-                    @*<li>
-                        <a href="#">
-                            Chào 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="logout-process.jsp">
-                            Logout
-                        </a>
-                    </li>*@
-
-                   
+                        @Html.ActionLink("Login", "Index", "SignIn")
+                    </li>                   
                     <li>
                         @Html.ActionLink("Contact", "Index", "Contact")                       
                     </li>
