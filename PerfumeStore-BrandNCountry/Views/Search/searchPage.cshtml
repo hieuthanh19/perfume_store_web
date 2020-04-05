@@ -18,17 +18,24 @@
                     <!-- Search bar start -->
                     @using (Html.BeginForm("searchPage", "Search", FormMethod.Get))
                     {
-                        <div class="input-group mb-4 border rounded-pill search-bar">
-                            <input type="text" name="searchString" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0">
-                            <div class="input-group-append border-0">
-                                <button id="button-addon3" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
-                            </div>
+                    <div class="input-group mb-4 border rounded-pill search-bar">
+                        @if (ViewBag.i != 0)
+                        {<input type="text" name="searchString" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0">}
+                        else
+                        {<input type="text" name="searchString" placeholder="What're you searching for?" value="@ViewBag.searchString" aria-describedby="button-addon3" class="form-control bg-none border-0">}
+                        <div class="input-group-append border-0">
+
+                            <button id="button-addon3" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+
+                            <button id="button-addon3" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+
                         </div>
-                    }
+                    </div>
+                     }
 
 
-                    <!-- Search bar end -->
-                </div>
+                            <!-- Search bar end -->
+                            </div>
             </div>
         </div>
     </div>
