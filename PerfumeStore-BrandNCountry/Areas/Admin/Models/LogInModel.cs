@@ -10,7 +10,7 @@ namespace PerfumeStore_BrandNCountry.Areas.Admin.Models
     {
         [Required(ErrorMessage ="Please enter user name")]
         public string username { get; set; }
-        [Required(ErrorMessage = "Please enter Password")]
+        [Required(ErrorMessage = "Please enter password")]
         public string password { get; set; }
         public bool isRemember { get; set; }
     }
