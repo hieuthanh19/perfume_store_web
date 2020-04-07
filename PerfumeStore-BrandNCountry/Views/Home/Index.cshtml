@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var session = (PerfumeStore_BrandNCountry.Common.UserLogin)Session[PerfumeStore_BrandNCountry.Common.CommonConstant.USER_SESSION];
     var newProductList = Model.OrderByDescending(p => p.product_createdAt).Take(10).ToList();
     var featureProductList = Model.Take(10).OrderBy(p => p.product_id).ToList();
     var womenProductList = Model.Where(p => p.category_id == 1).Take(10).OrderBy(p => p.product_id).ToList();
@@ -101,7 +101,15 @@
                             <div class="f_p_img">
                                 <img class="img-fluid" src="@ViewBag.imgPath/@item.product_id/@item.productImgs.First().img_path" alt="@item.product_name">
                                 <div class="p_icon">
-                                    <a href="@Url.Action("AddItem", "FavList", new { productId = @item.product_id})">
+                                    @{ 
+                                        Model.EF.PerfumeStoreDbContext db = new Model.EF.PerfumeStoreDbContext();
+                                        var firstItemcheck = new Model.EF.favList();
+                                        if (session != null)
+                                        {
+                                            firstItemcheck = db.favLists.Where(x => x.product_id == item.product_id && x.user_id == session.userId).FirstOrDefault();
+                                        }
+                                    }
+                                    <a class="@(firstItemcheck != null ? "active": "")" href="@(firstItemcheck != null ? @Url.Action("DeleteItem", "FavList", new { productId = @item.product_id}) : @Url.Action("AddItem", "FavList", new { productId = @item.product_id}))">
                                         <i class="lnr lnr-heart"></i>
                                     </a>
                                     <a href="@Url.Action("AddItem", "Cart", new { productId = item.product_id, quantity = 1})">

@@ -11,4 +11,10 @@ namespace PerfumeStore_BrandNCountry.Common
         public int userId { get; set; }
         public string username { get; set; }
     }
+    public class AdminLogin
+    {
+        public int userId { get; set; }
+        public string username { get; set; }
+        public string role_name { get; set; }
+    }
 }

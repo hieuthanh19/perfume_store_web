@@ -24,7 +24,7 @@ namespace Model.EF
         public string user_username { get; set; }
 
         [Required]
-        [StringLength(32), Display(Name = "Password")]
+        [StringLength(100), Display(Name = "Password")]
         public string user_password { get; set; }
 
         [Display(Name = "User Role ID")]
